@@ -1,0 +1,1398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0090)https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script src="./Knowledge Pro_files/studentHomeLayout.js" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Knowledge Pro</title><link rel="stylesheet" href="./Knowledge Pro_files/bootstrap.min.css" type="text/css"><link rel="stylesheet" href="./Knowledge Pro_files/base.css" type="text/css"><link rel="stylesheet" href="./Knowledge Pro_files/menustyle1.css" type="text/css"><link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/styles.css"><script type="text/javascript" src="./Knowledge Pro_files/jquery-1.10.1.min.js"></script><script type="text/javascript" src="./Knowledge Pro_files/bootstrap.min.js"></script><script type="text/javascript" src="./Knowledge Pro_files/script.js"></script><script type="text/javascript" src="./Knowledge Pro_files/Ajax.js"></script><script type="text/javascript" src="./Knowledge Pro_files/AjaxUtil.js"></script><style type="text/css">
+.cotbox {
+	width: 100%;
+	float: left;
+	margin: 0%;
+	 margin-top: 130px; 
+	  overflow: auto;
+}
+</style><link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/jquery.confirm.css"><script type="text/javascript" src="./Knowledge Pro_files/jquery.confirm.js"></script><style type="text/css">
+  .home {
+  cursor:pointer;
+  color: #183883; 
+  font-size: 18px; 
+  margin: 0; 
+  padding: 0 30px;
+  }
+  .home:hover {
+  cursor:pointer;
+  font-size: 18px; 
+  margin: 0; 
+  padding: 0 30px;
+  color: #f55e15;
+  }
+  .header {
+	background: #fff;
+	width: 100%;
+	height: 130px;
+	top: 0;
+	left: 0;
+	border-bottom: 3px solid #001b3a;
+	z-index: 100;
+	position: fixed;
+}
+ul.nav ul {
+	box-shadow: 0 0 3px #333;
+    display: none;
+    height: auto;
+    margin: 0;
+    min-width: 190px;
+    padding: 0;
+    position: absolute;
+    z-index: 9999;
+}
+</style></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body style="">
+<div class="fixed1">
+<div class="header">
+<div class="container">
+<div class="row">
+	<div class="col-xs-3 logo">
+	<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	
+	<img src="./Knowledge Pro_files/Logo.jpg" alt="Logo not available" class="img-responsive">
+	</a></div><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	<div class="col-md-5">
+	</div>
+	</a><div class="col-md-3" style="font-size: 14px;font-weight: bold;" align="right"><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	
+		Welcome&nbsp;: &nbsp;<strong>2447226 </strong>
+	 &nbsp;&nbsp;
+	
+		
+		
+			</a><a class="btn-link" style="font-size: 14px;font-weight: bold;" href="https://kp.christuniversity.in/KnowledgePro/StudentLoginAction.do?method=studentLogoutAction">Sign out</a>
+		
+	
+	</div>
+
+
+<div class="col-xs-9">
+            	<div class="topfull2"><div class="menubox">
+<a class="toggleMenu" href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#"><img src="./Knowledge Pro_files/icon-nav.jpg"></a>
+<ul class="nav NormalMenu">
+<li onclick="Home()" class="home" style="">Home</li>
+	
+		
+		
+		<li class="test" id="att">	<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#" class="parent">Attendance </a>
+       <ul style="left:-10%">
+		<li>
+			
+				
+				
+					<a id="attendanceNonCJC" href="javascript:void(0);">
+						Attendance </a>
+					
+				
+			
+		</li>
+		<li></li>
+		
+		<li>
+		
+		</li>
+		
+		<li>
+			<!-- <a
+				href="studentWiseAttendanceSummary.do?method=getStudentAbscentWithCocularLeave">Absence Details </a> -->
+			<a id="absenceDetailsId" href="javascript:void(0);">Absence Details </a>	
+		</li>
+		<li>
+			
+				
+				
+					<a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=initPreviousStudentAttendanceSummeryChrist">Previous Class Attendance</a>
+				
+			
+		</li>
+		<li></li>
+		<li>
+			<a href="https://kp.christuniversity.in/KnowledgePro/viewMyTimeTable1.do?method=initViewStudentTimeTable">View My Time Table</a>
+		</li>
+		<li>
+		
+		</li>
+		<li>
+		
+		</li>
+		
+		<li>
+	    	<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getLibraryAttendanceSummary">Library Attendance&nbsp;
+	    	<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" id="displayDownloadNew" height="15" class="blinkImage">
+			</a>
+		</li>
+		
+	</ul>
+	</li>
+		
+		
+
+        
+	
+	<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#" class="parent">Downloads&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" id="displayDownloadNew" style="display:none;" height="15" class="blinkImage"> </a>
+	<ul style="left:-10%">
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getInternalMarkDetails">
+		CIA-Mid Sem Result</a></li>
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getPreviousSemesterInternalMarkDetails">
+		Previous Class CIA-MID Sem Result</a></li>
+		
+		
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getStudentLastSemesterClass">
+		     End Semester Marks</a></li>
+		
+		<li>
+			<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=initMarksCard">My Marks Card</a>
+		</li>
+		
+		
+		<li>
+		
+		</li>
+		<!-- for multiple ese components marks display by ram -->
+		<li>
+			<!-- <a href="StudentLoginNewAction.do?method=multipleEseComponentMarksDisplay"></a> -->
+			<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getStudentLastSemesterClass">ESE Component Marks</a>
+			 
+
+		</li>
+		<!-- end -->
+		
+		
+		<!--Added by Ashwini N Kandgal  -->
+		<li>
+			
+		</li>
+		<!-- Code ended by Ashwini N Kandgal -->
+		
+		
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=FeePayementReceipts"> Fee Payment Details</a></li>
+		
+		
+		
+			
+			
+			<li></li>
+			
+			<li></li>
+		
+		<li>
+			
+		</li>
+		<li>
+		
+		</li>
+		<li></li>
+		<li>
+			
+		</li>
+		
+		<li>
+			
+		</li>
+		<li>
+		
+		</li>
+		<li><!--<a href="hostelStudentViewMessage.do?method=initHostelStudentViewMessage" >Student View Message </a>
+         --></li>
+         
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/displaySyllabusCoursePlan.do?method=initStudentSyllabusAndCoursePlan">Course Pack </a></li>
+		
+	
+		
+		
+		
+					
+			
+			
+					<li><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=initDocumentSubmissionStatus">Document Submission Status&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"> </a></li>
+					
+					
+			
+					
+			  
+			
+		 
+			<li>
+				<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getCourseCompletionStatus">Programme Completion Status</a>
+			</li>
+		
+		 <li>
+		  
+		 
+	
+	 	</li>
+	</ul>
+	
+	<script type="text/javascript">
+	 $( "#displayDownloadNew" ).removeAttr( "style" );
+	</script>
+	
+	
+	</li>
+	
+
+
+	<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#" class="parent">Apply Online&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" id="displayOnlineNewLogo" height="15" class="blinkImage"></a>
+	<ul style="left:-10%">
+			
+			
+			<!-- certificateRequest1.do?method=initCertificateRequest -->
+			<li><a href="javascript:void(0);" onclick="certificateRequest()"> Certificate Request</a></li>
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/certificateRequest1.do?method=getCertificateStatus">Certificate Status</a></li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+		
+		
+			
+				
+					<li> 
+					<!-- onlineExamSuppApplication.do?method=initConvocationRegistration -->
+					<a href="javascript:void(0);" onclick="convocationRegistration()">Convocation Registration
+					&nbsp; <img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+					</a> </li>
+					
+				
+			
+			<!--attestMarksCard.do?method=initAttestMarksCard&studentId=1730883&isOriginalTranscript=false  -->
+			<li> <a href="javascript:void(0);" onclick="marksCardAttestation(1730883)">Marks Card Attestation
+					&nbsp; <img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+				</a> 
+			</li>
+			<!-- attestMarksCard.do?method=initOriginalTransScriptRequest&studentId=1730883&isOriginalTranscript=true -->
+			<li> <a href="javascript:void(0);" onclick="originalTranscriptRequest(1730883)">Original Transcript Request 
+					&nbsp; <img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+				</a> 
+			</li> 
+		</ul>
+	</li>
+	
+	<script type="text/javascript">
+	 $( "#displayOnlineNewLogo" ).removeAttr( "style" );
+	</script>
+	
+	
+		<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#" class="parent">Student Support </a>
+		<ul style="left:-10%">
+		
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/studentSupportRequest1.do?method=initStudentSupportRequest">Support Request </a></li>
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/facultyLocation.do?method=initFacultyLocation">Faculty Location </a></li>
+			
+		                  <li><a href="http://databank.christuniversity.in/" target="_blank">Data Bank </a></li> 
+		                  <li><a href="http://courses.christuniversity.in/login/index.php" target="_blank">My Course</a></li>
+		                  
+		        
+			
+			
+		</ul>
+<!-- 				<li onclick="facultyLocation()" class="home" style="" >Faculty Location</a></li>
+ -->    </li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="./Knowledge Pro_files/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="./Knowledge Pro_files/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="./Knowledge Pro_files/jquery-ui.css">
+<script language="JavaScript" src="./Knowledge Pro_files/calendar_us.js"></script>
+<link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/jquery.confirm.css">
+<script src="./Knowledge Pro_files/jquery.confirm.js"></script>
+<script language="JavaScript" src="./Knowledge Pro_files/studentHeaderNew.js"></script>
+
+<div class="cotbox">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/styles.css">
+<script type="text/javascript" src="./Knowledge Pro_files/jquery-1.10.1(1).min.js"></script>
+<script src="./Knowledge Pro_files/jquery.confirm.js"></script>
+<script type="text/javascript" src="./Knowledge Pro_files/jquery.tooltipsterNew.js"></script>
+<script type="text/javascript" src="./Knowledge Pro_files/bootbox.min.js"></script>
+<script type="text/javascript" src="./Knowledge Pro_files/canvasjs.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/jquery.confirm.css">
+<link rel="stylesheet" type="text/css" href="./Knowledge Pro_files/tooltipster.css">
+<script type="text/javascript" src="./Knowledge Pro_files/jquery.tooltipster.js"></script>
+
+<style>
+/*starts Irayya coding here...  */
+.tooltipster-default {
+	min-width: 230px;
+	max-width: 500px;
+	background: #eaecf0;
+	color: #333;
+	border-color: #bbbbbb;
+    border-radius: 6px;
+    border-width: 1px;
+    box-shadow: 0 1px 4px #aaaaaa;
+}
+.myDialogBox {background:#7eaacd !important}
+
+</style>
+
+<input type="hidden" name="isStudentOpenDiv" id="isStudentOpenDiv" value="closed">
+<input type="hidden" name="isStudentConfirmDiv" id="isStudentConfirmDiv" value="disAgree">
+<input type="hidden" name="studentOpenStartDate" id="studentOpenStartDate" value="">
+<input type="hidden" name="studentOpenEndDate" id="studentOpenEndDate" value="">
+<input type="hidden" name="mobileT" value="" id="mobileT">
+<input type="hidden" name="tempToken" value="" id="tempToken">
+<input type="hidden" name="percentageValid" value="" id="percentageValid">
+<input type="hidden" name="satisFactionSurveyURL" value="" id="satisFactionSurveyURL"> 
+<input type="hidden" name="isUGStudent" id="isUGStudent" value="false">
+
+<script type="text/javascript">
+if($("#isStudentOpenDiv").val() == "open"){
+	var openEndDate = $("#studentOpenEndDate").val();
+ if($("#isStudentConfirmDiv").val() == "disAgree"){
+	$.confirm({
+		'message'    : 'PLEASE CROSS CHECK ALL YOUR DETAILS AS PER OUR RECORDS.<br><br>THIS IS IMPORTANT AS AN ERROR IN THE MARKS MAY AFFECT  YOUR PLACEMENTS OR ERROR IN  YOUR NAME AND  YOUR PARENTS NAME  WILL BE REFLECTED IN THE MARKS CARDS AND FINAL DEGREE CERTIFICATE .<br><br>IF THERE IS ANY DISCREPANCY IN ANY OF THE INFORMATION PLEASE CONTACT THE ADMISSION OFFICE WITH SUPPORTING DOCUMENTS ON OR BEFORE '+openEndDate+' NO CORRECTION WILL BE ALLOWED AFTER THE LAST DATE FOR ANY REASONS.',
+		'buttons'    : {
+			'Ok'    : {
+				'class'    : 'blue',
+				'action': function(){
+					$.confirm.hide();
+					$("#demo1_tip").dialog({
+						resizable: false,
+						modal: true,
+						height: 600,
+						width: 1000,
+						title: "View My Details",
+						close: function() {
+							$("#demo1_tip").dialog("destroy");
+						},
+						buttons:{
+							Close:function(){$("#demo1_tip").dialog("destroy");},
+							Verify:function(){
+							if(document.getElementById("isStudentConfirm").checked){
+								$.ajax({
+		                            type: "post",
+		                            url: "StudentLoginNewAction.do?method=saveStudentDetailConfirmation",
+		                            data: {isStudentConfirm:document.getElementById("isStudentConfirm").checked},
+		                            success : function(data) {
+		                                if (data == "no") {
+		                                    $.confirm({
+		                                        'message'    : 'Failed to confirm view detail.',
+		                                        'buttons'    : {
+		                                            'Ok'    : {
+		                                                'class'    : 'blue',
+		                                                'action': function(){
+		                                                    $.confirm.hide();
+		                                                }
+		                                            }
+		                                        }
+		                                    });
+		                                } else {
+		                                            $.confirm({
+		                                                'message'    : '<b>'+data+'</b>',
+		                                                'buttons'    : {
+		                                                    'Ok'    : {
+		                                                        'class'    : 'blue',
+		                                                        'action': function(){
+		                                                            $.confirm.hide();
+		                                                            //document.location.href = "StudentLoginAction.do";
+		                                                            $("#isStudentConfirmDiv").val("agree")
+		                                                            $("#agreed").val("agreed");
+		                                                            $("#demo1_tip").dialog("close");
+		                            								$("#demo1_tip").hide();
+		                                                        }
+		                                                    }
+		                                                }
+		                                            });
+		                                }
+		                            }
+		                        });
+							}else{
+								$.confirm({
+									'message'	: 'Please select I agree.',
+									'buttons'	: {
+										'Ok'	: {
+											'class'	: 'blue',
+											'action': function(){
+												$.confirm.hide();
+											}
+										}
+									}
+								});
+							}
+							},
+						}
+					}); 
+				}
+			}
+		}
+	});
+ }
+}
+function showStudentDetail(){
+	if(($("#isStudentOpenDiv").val() == "reOpen") || ($("#isStudentOpenDiv").val() == "open")){
+		if($("#isStudentConfirmDiv").val() == "disAgree"){
+			$("#demo1_tip").dialog({
+				resizable: false,
+				modal: true,
+				height: 600,
+				width: 1000,
+				title: "View My Details",
+				close: function() {
+					$("#demo1_tip").dialog("destroy");
+				},
+				buttons:{
+					Close:function(){$("#demo1_tip").dialog("destroy");},
+					Verify:function(){
+					if(document.getElementById("isStudentConfirm").checked){
+						$.ajax({
+		                    type: "post",
+		                    url: "StudentLoginNewAction.do?method=saveStudentDetailConfirmation",
+		                    data: {isStudentConfirm:document.getElementById("isStudentConfirm").checked},
+		                    success : function(data) {
+		                        if (data == "no") {
+		                            $.confirm({
+		                                'message'    : 'Failed to confirm view detail.',
+		                                'buttons'    : {
+		                                    'Ok'    : {
+		                                        'class'    : 'blue',
+		                                        'action': function(){
+		                                            $.confirm.hide();
+		                                        }
+		                                    }
+		                                }
+		                            });
+		                        } else {
+		                                    $.confirm({
+		                                        'message'    : '<b>'+data+'</b>',
+		                                        'buttons'    : {
+		                                            'Ok'    : {
+		                                                'class'    : 'blue',
+		                                                'action': function(){
+		                                                    $.confirm.hide();
+		                                                    //$("#isStudentConfirmDiv").val("agree")
+		                                                    //$("#agreed").val("agreed");
+		                                                    $("#demo1_tip").dialog("close");
+		                    								$("#demo1_tip").hide();
+		                                                }
+		                                            }
+		                                        }
+		                                    });
+		                        }
+		                    }
+		                });
+					}else{
+						$.confirm({
+							'message'	: 'Please select I agree.',
+							'buttons'	: {
+								'Ok'	: {
+									'class'	: 'blue',
+									'action': function(){
+										$.confirm.hide();
+									}
+								}
+							}
+						});
+					}
+					},
+				}
+			}); 
+		}else{
+			$("#demo1_tip").dialog({
+				resizable: false,
+				modal: true,
+				height: 600,
+				width: 1000,
+				title: "View My Details",
+				close: function() {
+					$("#demo1_tip").dialog("destroy");
+				},
+				buttons:{
+					Close:function(){$("#demo1_tip").dialog("destroy");},
+				}
+			}); 
+		}
+	}else if($("#isStudentOpenDiv").val() == "closed"){
+		$("#demo1_tip").dialog({
+			resizable: false,
+			modal: true,
+			height: 600,
+			width: 1000,
+			title: "View My Details",
+			close: function() {
+				$("#demo1_tip").dialog("destroy");
+			},
+			buttons:{
+				Close:function(){$("#demo1_tip").dialog("destroy");},
+			}
+		}); 
+	}
+}
+//end Irayya code
+    $(document).ready(function () {
+        setInterval("$('#blinking').fadeOut(150).fadeIn(150);",1000);
+        setInterval("$('#blinking1').fadeOut(150).fadeIn(150);",2500);
+        if($("#percentageValid").val() == "true"){
+        	window.open($("#satisFactionSurveyURL").val(),'_blank');
+        	$("#percentageValid").val(null);
+        	$("#satisFactionSurveyURL").val(null);
+        }else if($("#percentageValid").val() == "false")
+        {
+        	$.confirm({
+     			'message'    : ' You are not eligible to continue with this survey due to low attendance %',
+     			'draggable'   : true,
+     			'buttons'    : {
+     				'Ok'    : {
+     					'class'    : 'blue',
+     					'action': function(){
+     						document.location.href="StudentLoginNewAction.do?method=returnToHomePage";
+     						$.confirm.hide();
+     						
+     					}
+     					
+     				}
+     			}
+     		});
+        }
+        $("#percentageValid").val(null);
+        $("#satisFactionSurveyURL").val(null);
+    });
+	var print = "false";
+	if(print.length != 0 && print == "true") {
+		document.location.href = "onlineExamSuppApplication.do?method=initConvocationRegistration";
+		
+	}
+ 	 function submit(){
+ 		 $("#mobileNo").each(function() {
+             if(!isNaN(this.value) && this.value.length!=0) {
+             	if(this.value.length > 10 || this.value.length < 10){
+             		bootbox.alert("<h4>Please enter 10 digits mobile number</h4>");
+             		return false;
+                 	}else{
+                 		document.getElementById("loading").style.visibility='visible';
+                 		$('#loading').attr('src','images/loading.gif');
+                 		var mobileNo=document.getElementById("mobileNo").value;
+                 		var args ="method=submitMobileNo&mobileNo="+mobileNo;
+                		var url = "StudentLoginNewAction.do";
+                		requestOperationProgram(url, args, updateMobileNumber);
+                 	}
+             }
+         });
+ 	 	 }
+ 	function updateMobileNumber(req) {
+		var responseObj = req.responseXML.documentElement;
+		var childNodes = responseObj.childNodes;
+		var items = responseObj.getElementsByTagName("option");
+		var label, value;
+		for ( var i = 0; i < items.length; i++) {
+			label = items[i].getElementsByTagName("optionlabel") [0].firstChild.nodeValue;
+			value = items[i].getElementsByTagName("optionvalue") [0].firstChild.nodeValue;
+		}
+		setTimeout(function () {
+			document.getElementById("loading").style.visibility='hidden';
+        }, 1000);
+		document.getElementById("mobileNo").value = label;
+		$("#saveMode").attr('id', 'editMode');
+		$("#editMode").attr('onclick', 'editMobileNo()');
+		$("#editMode").attr('value', 'Edit');
+		document.getElementById("mobileNo").disabled = true;
+		 
+	}
+ 	function openHtml() {
+ 		var url="StudentLoginNewAction.do?method=help";
+ 		win2 = window.open(url, "Help", "left=1350,top=550,width=200,height=100,toolbar=0,resizable=0,scrollbars=0,addressbar=0"); 
+ 	}
+
+	function opendetailsStudent() {
+		var url="StudentLoginNewAction.do?method=StudentDetails";
+		win2 = window.open(url, "Student Details", " left=0,top=0,width=500,height=450,toolbar=0,resizable=1,scrollbars=1,addressbar=0"); 
+	}
+	/*function getLinkDetails(count){
+		 document.getElementById("tempCount").value = count;
+		var args = "method=getStudentAttendancePercentage";
+		var url = "StudentLoginNewAction.do";
+		requestOperationProgram(url, args, updateStuAttPercentage);
+	}
+	function updateStuAttPercentage(req){
+		var responseObj = req.responseXML.documentElement;
+		var childNodes = responseObj.childNodes;
+		var items = responseObj.getElementsByTagName("option");
+		var label, value;
+		for ( var i = 0; i < items.length; i++) {
+			label = items[i].getElementsByTagName("optionlabel") [0].firstChild.nodeValue;
+			value = items[i].getElementsByTagName("optionvalue") [0].firstChild.nodeValue;
+		}
+		var tempCount = document.getElementById("tempCount").value;
+		var reqPercent =document.getElementById("requiredPercentage_"+tempCount).value;
+		if(reqPercent!=null && reqPercent!=''){
+			if(parseFloat(value) < parseFloat(reqPercent)){
+				bootbox.alert("<h4>We are collecting the feedback only from students who have put in at least 85% of attendance</h4>");
+			}else{
+				var urlLink = document.getElementById("linkName_"+tempCount).value;
+				var win = window.open(urlLink,'_blank');
+				 win.focus();
+			}
+		}else{
+			var urlLink = document.getElementById("linkName_"+tempCount).value;
+			var win = window.open(urlLink,'_blank');
+			 win.focus();
+		}
+	}
+	 function getFileDetails(count){
+		 document.getElementById("tempCount").value = count;
+			var args = "method=getStudentAttendancePercentage";
+			var url = "StudentLoginNewAction.do";
+			requestOperationProgram(url, args, updateStuAttPercentage1);
+	}
+	function updateStuAttPercentage1(req){
+		var responseObj = req.responseXML.documentElement;
+		var childNodes = responseObj.childNodes;
+		var items = responseObj.getElementsByTagName("option");
+		var label, value;
+		for ( var i = 0; i < items.length; i++) {
+			label = items[i].getElementsByTagName("optionlabel") [0].firstChild.nodeValue;
+			value = items[i].getElementsByTagName("optionvalue") [0].firstChild.nodeValue;
+		}
+		var tempCount = document.getElementById("tempCount").value;
+		var reqPercent =document.getElementById("requiredPercentage_"+tempCount).value;
+		if(reqPercent!=null && reqPercent!=''){
+			if(parseFloat(value) < parseFloat(reqPercent)){
+				bootbox.alert("<h4>We are collecting the feedback only from students who have put in at least 85% of attendance</h4>");
+			}else{
+				var fileLink = document.getElementById("fileName_"+tempCount).value;
+				var win = window.open("images/Notifications/"+fileLink,'_blank');
+				 win.focus();
+			}
+		}else{
+			var fileLink = document.getElementById("fileName_"+tempCount).value;
+			var win = window.open("images/Notifications/"+fileLink,'_blank');
+			 win.focus();
+		}
+			
+	} */
+	function editMobileNo(){
+		$("#editMode").attr('id', 'saveMode');
+		$("#saveMode").attr('onclick', 'submit()');
+		$("#saveMode").attr('value', 'Save');
+		document.getElementById("mobileNo").disabled = false;
+		document.getElementById("mobileNo").focus();
+		
+	}
+	function isNumberKey(evt) {
+		
+		var charCode = (evt.which) ? evt.which : event.keyCode
+				if((evt.ctrlKey || evt.keyCode == 86)  ){
+					return true;
+				}
+	    if ((charCode > 45 && charCode < 58) || charCode == 8){ 
+	        return true; 
+	    } 
+	    return false;  
+	}
+	
+	 function ClearanceCertificateMC(blockId) {  
+	    	document.location.href = "StudentLoginNewAction.do?method=ClearanceCertificateMC&supHallTicket=false&blockId="+blockId;
+	    }
+	 function ClearanceCertificate(blockId) {  
+	    	document.location.href = "StudentLoginNewAction.do?method=ClearanceCertificate&supHallTicket=false&blockId="+blockId;
+	    }
+	
+ 	</script>
+ 	<!-- <style type="text/css">
+ 	
+ 	</style> -->
+
+<input type="hidden" id="tempCount">
+
+ 
+ <div style="height: 750px; background-image: url(&quot;images/LoginImages/StudentLoginBanner.jpg?1776674286855&quot;); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover; z-index: 2;" id="dive1">
+<div style="height: 750px; background-color: rgba(255, 255, 255, 0.8);" id="dive2">
+<div class="container">
+  <div class="col-md-12 sylfull">
+
+ <div class="col-md-8 col-sm-8 " align="left">
+   <div class="col-md-8 col-sm-6 profphot01">
+  <div class="prohead">
+ <img src="./Knowledge Pro_files/1730883.jpg" class="img-responsive" align="middle" style=" padding:1px; border:1px solid black; background-color:black;" width="148" height="180">
+   </div>
+  <div class="proheadcot">Profile</div>
+  
+  <div class="proname2">
+	  	<table cellpadding="0" cellspacing="0" border="0">
+	  		<tbody><tr>
+	  			<td width="72%" align="left">
+	  				<div class=""><b>Name :</b> <span class="name">KARAN AGARWAL</span></div>
+	  			</td>
+	  			 
+	  			<td width="28%" align="left">
+	  				<input class="btn btn-primary btn-sm" align="left" type="button" id="" onclick="getAcademicProgressChart()" value="Academic Progression">
+	  			</td>
+	  			
+	  			
+	  		</tr>
+	  	</tbody></table>
+  </div>
+  
+  <div class="proname2"><b>Class :</b>  6MCA B
+  	
+  </div>
+  <div class="proname2"><b>Mobile No :</b>  
+  <input type="text" name="mobileNo" maxlength="10" size="12" value="9064547146" onkeypress="return isNumberKey(event)" disabled="disabled" id="mobileNo">
+  
+  <img src="./Knowledge Pro_files/questionMark.jpg" style="cursor:pointer;" height="20" width="20" id="mobileno" title="&lt;center&gt;Your 10 digits mobile number&lt;/center&gt;">
+ 	&nbsp;&nbsp;&nbsp;
+<b><input type="button" class="btn btn-primary btn-sm" id="editMode" onclick="editMobileNo()" value="Edit"></b> 
+  	<img src="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage" height="40" width="40" id="loading" style="visibility: hidden;">
+  	  <!--  BLock Student mobile No.for CJC Edit By Diwakar  -->
+  </div>
+  <div class="proname2"><b>Bank AccNo  :</b>  0396053000094207</div>
+  
+  
+ 
+  
+   <div class="proname2"><b>Academic Bank of Credits(ABC) ID:</b>  
+   
+  	
+  	714233559635
+  	
+  </div>
+  
+   <div class="proname2"><b>Name as per Aadhar :</b>  
+   
+  	
+  	Karan Agarwal
+  	
+  </div> 
+  
+  
+  
+  
+  
+   <div class="proname2"><b>Personal Email ID    :</b> 
+   
+    <input type="text" name="contactMail" maxlength="50" size="14" value="karxnpvt@gmail.com" disabled="disabled" id="contactMail">
+ 
+ 	
+			<img src="./Knowledge Pro_files/questionMark.jpg" style="cursor:pointer;" height="20" width="20" id="emailid" title="&lt;center&gt;Your Email Id&lt;/center&gt;">
+ 	&nbsp;&nbsp;
+<b><input type="button" class="btn btn-primary btn-sm" id="editMode1" onclick="editEmailId()" value="Edit"></b> 
+<img src="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage" height="30" width="30" id="loading1" style="visibility: hidden;">
+ <br><br>
+<b><input type="button" class="btn btn-primary btn-sm" id="showStudentDetail" onclick="showStudentDetail()" style="margin-left:228px" value="View My Details"></b>
+ 
+  
+   <!-- <img align="right" src="images/more.jpg" style="cursor:pointer" height="35" width="40"  id="personalInfo"> -->
+    
+    <div style="display:none;">
+            <div id="demo1_tip">
+<div align="right"><a href="https://kp.christuniversity.in/KnowledgePro/images/CommonImages/VerificationGuidelines.png" target="_blank"><u style="color: blue;"><b>Click here for the Guidelines for verification</b></u></a></div>
+<br><br>
+<table width="100%" cellspacing="1" cellpadding="1" class="table table-striped table-bordered table-condensed">
+<tbody class="table-hover">
+<tr>
+<td class="text-left" width="30%"><b>Student Name :</b></td>
+<td class="text-left">KARAN AGARWAL</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Father's Name :</b></td>
+<td class="text-left">Mr. RAHUL KUMAR AGARWAL</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Mother's Name :</b></td>
+<td class="text-left">Ms. JYOTI AGARWAL</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Date Of Birth :</b></td>
+<td class="text-left">20-Sep-2003</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Mobile No :</b></td>
+<td class="text-left">91 9064547146</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Phone No :</b></td>
+<td class="text-left">--</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Current Address :</b></td>
+<td class="text-left">LVR LIVING, 1ST MAIN ROAD, 1ST CROSS ROAD, CL LAYOUT,,
+            Hosur Road, D R C Post,
+            BANGALORE URBAN,
+            Karnataka, 
+            560029
+</td>
+</tr>
+<tr>
+<td class="text-left" width="30%"><b>Permanent Address :</b></td>
+<td class="text-left">1NO Mahishila Colony, SF Road,
+            ,
+            BARDDHAMAN, 
+            West Bengal,
+            713303
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+			<td colspan="3"><span><big><b>Qualifications:</b></big></span></td>
+		</tr>
+</tbody></table>
+<table width="100%" cellspacing="1" cellpadding="1" class="table table-striped table-bordered table-condensed">
+<tbody><tr>
+<td>Sl. No</td>
+<td>Qualification</td>
+<td>Exam. Name</td>
+<td>University/Board</td>
+<td>Name of the Institute</td>
+<td>State</td>
+<td>Year of Passing</td>
+<td>Month Of Passing</td>
+<td>Marks Obtained</td>
+<td>Max. Marks</td>
+<td>Percentage</td>
+<td>Previous Exam Reg. No.</td>
+</tr>
+
+		
+		<tr>
+			<td class="text-left">1</td>
+			<td class="text-left"> Class 10 </td>
+			<td class="text-left">
+			</td>
+			<td class="text-left">ICSE</td>
+			<td class="text-left">St. Vincent's H.t School,amc Ward/6, Asansol Municipal Corporation Barddhaman, West Bengalpin Code: 713304</td>
+			<td class="text-left">West Bengal</td>
+			<td class="text-left">2019</td>
+			<td class="text-left">
+								    
+								    
+								    
+								    MAY
+									
+									
+									
+									
+									
+									
+									</td>
+			<td class="text-left">551</td>
+			<td class="text-left">600</td>
+			<td class="text-left">91.83</td>
+			<td class="text-left">
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="text-left">2</td>
+			<td class="text-left">Class 12</td>
+			<td class="text-left">
+			</td>
+			<td class="text-left">ISC (CISCE)</td>
+			<td class="text-left">St. Patrick's Higher Secondary,amc Ward/6, Asansol Municipal Corporation Barddhaman, West Bengalpin Code: 713301</td>
+			<td class="text-left">West Bengal</td>
+			<td class="text-left">2021</td>
+			<td class="text-left">
+								    
+								    
+								    
+								    
+									
+									JULY
+									
+									
+									
+									
+									</td>
+			<td class="text-left">447</td>
+			<td class="text-left">500</td>
+			<td class="text-left">89.4</td>
+			<td class="text-left">
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="text-left">3</td>
+			<td class="text-left">DEG</td>
+			<td class="text-left">BSc
+			</td>
+			<td class="text-left">Christ University</td>
+			<td class="text-left">Christ (deemed To Be University),hosur Road, Bhavani Nagar, S.g. Palya, Bengaluru, Karnataka 560029</td>
+			<td class="text-left">Karnataka</td>
+			<td class="text-left">2024</td>
+			<td class="text-left">
+								    
+								    
+								    
+								    MAY
+									
+									
+									
+									
+									
+									
+									</td>
+			<td class="text-left">3139</td>
+			<td class="text-left">3600</td>
+			<td class="text-left">87.19</td>
+			<td class="text-left">2140134
+			</td>
+		</tr>
+		
+
+</tbody></table>
+<table width="100%" cellspacing="1" cellpadding="1" class="table table-striped table-bordered table-condensed">
+<tbody><tr>
+
+
+
+</tr>
+</tbody></table>
+</div>
+</div>
+   </div>
+  </div>
+ </div>
+<div class="col-md-4 col-sm-4 profphot02">
+<div class="notihead"><img src="./Knowledge Pro_files/notifi-icon.jpg" class="img-circle img-responsive"></div>
+<div class="notiheadcot">Notifications</div>
+<ul>
+
+			 
+			<div class="proname2">
+			<li>
+			<a href="javascript:void(0);" onclick="esproStudentFeePayment(&#39;Annual Fee Payment&#39;)">
+			Annual Fee Payment&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"></a></li></div>
+			
+			
+			
+			
+			
+
+		<!--  <div class="proname2">
+					<li>					
+						<a href="StudentLoginNewAction.do?method=viewScholarshipDetails">
+						Scholarship Details&nbsp;<img src="images/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+						</a>										
+					</li>					
+				</div> -->
+		     
+		 
+		 		 	
+				<div class="proname2">
+					<li>
+					
+					
+						<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage#" onclick="uploadPhotoFinal()">
+						Upload your recent photograph&nbsp;(&nbsp;for Degree Certificate&nbsp;)&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"></a>
+					
+					</li>
+					
+				</div>
+			 
+		  
+		    
+		  
+		
+		
+		  
+		 
+		
+		
+			
+	<!-- /swayam course marks upload link in student login  -->
+	
+<!-- 	// toDisplay Link for Student SatisFaction Survey  -->
+		
+		<div class="proname2">
+		<li>
+			<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getStudentSatisFactionSurvey">
+			Student Satisfaction Survey  &nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage" target="_blank"></a>	
+						
+		</li></div>
+	
+  <!-- Link for Student Second Language Registration  -->
+  		
+		
+		 
+		
+		
+		
+		
+		 
+		  
+		
+		
+		
+
+		
+		
+	
+	
+	
+		
+	
+
+	
+	
+	  
+    	
+	
+    	
+    	
+				
+						<div class="proname2">
+						<li><blink><b>
+						<!--  onlineExamSuppApplication.do?method=initConvocationRegistration -->
+							<a href="javascript:void(0);" onclick="convocationRegistration()">
+							Convocation Registration&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"></a>					
+						</b></blink>
+						</li></div>
+			
+		
+		
+		
+						<div class="proname2">
+			<li><blink><b>
+				<a href="https://kp.christuniversity.in/KnowledgePro/ConvocationSession1.do?method=getConvocationInstructions&amp;baseStudentId">
+				Convocation Instructions&nbsp;<img src="./Knowledge Pro_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"></a>					
+			</b></blink>
+			</li></div>
+		
+		
+		
+		
+		
+    	
+
+ 		 
+ 	
+		
+	
+	
+		
+				
+				<input type="hidden" name="linkName" value="" id="linkName_0">
+				<input type="hidden" name="fileName" value="1768537469864Industry Aligned Flexible Internship (Track B &amp; C).pdf" id="fileName_0">
+				<input type="hidden" name="requiredPercentage" value="" id="requiredPercentage_0">
+
+				
+				
+				
+							<div class="proname2">
+				<li>
+					<a href="javascript:void(0);" onclick="getFileDetails(0)">Industry-Aligned Flexible Internship Pathways: Track B and Track C
+					</a>
+					</li></div>
+				
+				
+		
+				
+				<input type="hidden" name="linkName" value="" id="linkName_1">
+				<input type="hidden" name="fileName" value="1767933418786Policy and Guidelines on Flexible Internship Engagement (1).pdf" id="fileName_1">
+				<input type="hidden" name="requiredPercentage" value="" id="requiredPercentage_1">
+
+				
+				
+				
+							<div class="proname2">
+				<li>
+					<a href="javascript:void(0);" onclick="getFileDetails(1)">Implementation of Flexible Internship Policy for all UG-PG Students
+					</a>
+					</li></div>
+				
+				
+		
+				
+				<input type="hidden" name="linkName" value="" id="linkName_2">
+				<input type="hidden" name="fileName" value="1772797280012Research Incentives Application and Policies for UG, PG and PhD Students.pdf" id="fileName_2">
+				<input type="hidden" name="requiredPercentage" value="" id="requiredPercentage_2">
+
+				
+				
+				
+							<div class="proname2">
+				<li>
+					<a href="javascript:void(0);" onclick="getFileDetails(2)">Research Incentives Application and Policies
+					</a>
+					</li></div>
+				
+				
+		
+	
+	
+	
+		
+	
+	
+		
+		
+		
+	 
+	
+	
+	
+	
+    
+	
+	
+	
+		
+    	
+    	 
+    	 
+    	 
+    	
+    	
+		
+		
+		
+    	    
+			
+			
+			
+			
+			
+			
+			
+		
+			
+			
+			 
+			 
+	  
+</ul>
+</div>
+
+</div>
+
+
+</div>
+
+<!--<div class="col-md-12 sylfull" >
+<div class="newsbox" style="float:right">
+<div class="newshead01"><img src="images/news_icon.jpg" class="img-circle img-responsive" /></div>
+<div class="newshead02">&nbsp;News & Events</div>
+
+<div class="newsbx">
+
+                     
+						<marquee behavior="scroll" direction="up"
+							scrollamount="2" width=700 height=150
+						    style="font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;font-weight: bold; color: black"
+							onmouseover="this.setAttribute('scrollamount', 0, 0);"
+							onmouseout="this.setAttribute('scrollamount', 1, 0);">
+																				
+							</marquee>
+					  
+					
+					</div>
+</div>
+
+
+
+</div>
+
+--></div>
+</div>
+</div>
+
+  <div id="openDialogForAcademicProgress" class="myDialogBox">
+	<div id="academicProgressChart" align="center" style="height: 100%; width: 100%; background-color: white; display: none;"></div>
+  </div>
+ 
+
+<script type="text/javascript">
+document.getElementById("loading").style.visibility='hidden';
+document.getElementById("loading1").style.visibility='hidden';
+$("#mobileno").attr("title", "<center>Your 10 digits mobile number</center>");
+	$("#mobileno").tooltipster();  
+	$("#emailid").attr("title", "<center>Your Personal Email ID</center>");
+	$("#emailid").tooltipster();  
+
+	var personalInfoData = 
+							"<div class='proname2' ><td><b><td>Father Name :</b></td><td>&nbsp;RAHUL KUMAR AGARWAL</td></div>"+
+							"<div class='proname2' ><td><b>Mother Name :</b></td><td>&nbsp;JYOTI AGARWAL</td></div>"+
+							"<div class='proname2' ><td><b>Phone Number :</b></td><td>&nbsp;--</td></div>"+
+							"<div class='proname2' ><td><b>Current Address  :</b></td><td>&nbsp;LVR LIVING, 1ST MAIN ROAD, 1ST CROSS ROAD, CL LAYOUT,"+
+							"Hosur Road, D R C Post,BANGALORE URBAN "+
+							"Karnataka,560029</td> "+ "</div>"+
+							"<div class='proname2' ><td><b>Permanent Address  :</b></td><td>&nbsp;1NO Mahishila Colony, SF Road"+
+							",BARDDHAMAN "+
+							"West Bengal,713303</td></div>";
+							
+
+				
+	$("#personalInfo").attr("title", personalInfoData);
+	$("#personalInfo").tooltipster(); 
+	document.getElementById("loading2").style.visibility='hidden';
+	document.getElementById("loading3").style.visibility='hidden';
+	$("#abcId1").attr("title", "<center>Your Academic Bank of Credits(ABC) ID</center>");
+		$("#abcId1").tooltipster();  
+		$("#nameAsPerAadhar1").attr("title", "<center>Your Name as per Aadhar</center>");
+		$("#nameAsPerAadhar1").tooltipster(); 
+		
+		$("#editMode2").attr("title", " Click on edit button to enter the details ");
+		$("#editMode2").tooltipster();  
+		
+		$("#editMode3").attr("title", " Click on edit button to enter the details ");
+		$("#editMode3").tooltipster();   
+	
+</script>
+	<script src="./Knowledge Pro_files/studentHomeNew.js"></script>
+
+
+<!-- Footer  -->
+
+
+
+
+
+
+
+
+
+
+<div class="footerbottom clearfix">
+<div class="container">
+<div class="col-md-8 col-sm-8 link">
+<!--<a href="#">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+	href="#">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Campus</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+	href="#">Academics</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Student
+services</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Admission</a>
+
+--><div class="copy">Copyright © 2015 - christuniversity.in</div>
+</div>
+<!--<div class="col-md-4 col-sm-4 ini">Website Design, Website
+Development, Web Hosting by INI Technologies Pvt Ltd, Cochin, India</div>
+-->
+</div>
+</div>
+
+
+
+
+
+<div id="give-freely-root-bcjindcccaagfpapjjmafapmmgkkhgoa" class="give-freely-root" data-extension-id="bcjindcccaagfpapjjmafapmmgkkhgoa" data-extension-name="JSON Formatter" style="display: block;"><template shadowrootmode="open"><style>
+  :host {
+    all: initial;
+  }
+
+  .gf-scroll-remove::-webkit-scrollbar {
+    border-radius-bottom-right: 15px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .give-freely-close-button:hover {
+    opacity: 0.7;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 1em 0;
+  }
+
+  dialog::backdrop  {
+    background-color: revert;
+  }
+
+  dialog.backdrop-hidden::backdrop  {
+    background-color: transparent;
+  }
+</style><div><div class="gf-app"></div></div></template></div><audio class="audio-output" style="display: none;"></audio><div id="volume-booster-visusalizer">
+                    <div class="sound">
+                        <div class="sound-icon"></div>
+                        <div class="sound-wave sound-wave_one"></div>
+                        <div class="sound-wave sound-wave_two"></div>
+                        <div class="sound-wave sound-wave_three"></div>
+                    </div>
+                    <div class="segments-box">
+                        <div data-range="1-20" class="segment"><span></span></div>
+                        <div data-range="21-40" class="segment"><span></span></div>
+                        <div data-range="41-60" class="segment"><span></span></div>
+                        <div data-range="61-80" class="segment"><span></span></div>
+                        <div data-range="81-100" class="segment"><span></span></div>
+                    </div>
+                </div></body></html>

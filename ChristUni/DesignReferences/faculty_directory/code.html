@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e2e2e7",
+                    "on-primary-container": "#799dd6",
+                    "primary-fixed": "#d5e3ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d9dade",
+                    "on-surface": "#1a1c1f",
+                    "secondary-fixed": "#ffe086",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#231b00",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface": "#f9f9fe",
+                    "outline-variant": "#c3c6d1",
+                    "inverse-primary": "#a7c8ff",
+                    "background": "#f9f9fe",
+                    "secondary-fixed-dim": "#e3c464",
+                    "surface-tint": "#3a5f94",
+                    "primary": "#001e40",
+                    "surface-container": "#ededf2",
+                    "inverse-on-surface": "#f0f0f5",
+                    "tertiary": "#381300",
+                    "on-tertiary-container": "#d8885c",
+                    "on-surface-variant": "#43474f",
+                    "primary-fixed-dim": "#a7c8ff",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "surface-container-high": "#e8e8ed",
+                    "secondary": "#735c00",
+                    "tertiary-container": "#592300",
+                    "on-secondary-container": "#786003",
+                    "on-tertiary-fixed": "#341100",
+                    "primary-container": "#003366",
+                    "surface-container-highest": "#e2e2e7",
+                    "secondary-container": "#fedd7b",
+                    "on-primary-fixed": "#001b3c",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#ffdbca",
+                    "outline": "#737780",
+                    "on-tertiary-fixed-variant": "#723610",
+                    "inverse-surface": "#2e3034",
+                    "surface-container-low": "#f3f3f8",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#1f477b",
+                    "on-background": "#1a1c1f",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #f9f9fe;
+        font-family: 'Inter', sans-serif;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        height: 0px;
+        width: 0px;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-[#f9f9fe] dark:bg-slate-950 w-full top-0 sticky z-40 transition-opacity duration-200">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="student profile photo" class="w-full h-full object-cover" data-alt="professional portrait of a university student with a friendly expression in a modern campus setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWuNpyGpPUvfzOx1sRgZOtcToWsFJlItJOz-g1RtFqIejf3F8-h5vHzaYfy4doL9nh0_4qZny9NyrqjiebwVf9sDfqZ-3-OzRZLBVxZgnL6Lkfq4wBX4Wucluwlc_SVpfX1LldJ9R4Xu_XmXFT3m9-fmpchWanW8z_6IzJTr2IveC7jlWbAbb5cFt20KBkkXMkS9hAzP_aGPFSbq4GTdBs9cytO1qnhjRGtTg8rch9VtPHP9cyrqBXNYbADHKm9lKER9bD_wnmLPej"/>
+</div>
+<h1 class="font-manrope font-bold tracking-tight text-lg text-[#001e40] dark:text-white">Christ University</h1>
+</div>
+<button class="text-[#001e40] dark:text-blue-100 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-6 pt-4 pb-32">
+<!-- Search and Filter Section -->
+<section class="mb-8">
+<div class="mb-6">
+<h2 class="font-headline text-3xl font-extrabold text-primary tracking-tight mb-2">Faculty Directory</h2>
+<p class="font-body text-on-surface-variant">Connect with our esteemed faculty members across campuses.</p>
+</div>
+<div class="relative group mb-6">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest rounded-xl border-none shadow-[0_8px_24px_rgba(0,30,64,0.04)] focus:ring-2 focus:ring-primary/10 text-on-surface placeholder:text-outline transition-all" placeholder="Search by name, department, or cabin..." type="text"/>
+</div>
+<div class="flex items-center gap-3 overflow-x-auto custom-scrollbar pb-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap">All Departments</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap transition-colors">Computer Science</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap transition-colors">Management</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap transition-colors">Psychology</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap transition-colors">Engineering</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high font-label text-[11px] font-medium tracking-wide uppercase whitespace-nowrap transition-colors">Humanities</button>
+</div>
+</section>
+<!-- Faculty Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Faculty Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_24px_rgba(0,30,64,0.04)] hover:shadow-[0_12px_32px_rgba(0,30,64,0.08)] transition-all duration-300 group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-low">
+<img alt="Faculty portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="portrait of an academic male professor in a formal blue shirt with a scholarly office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmKYfiLIwJEYd7GgWPZrRuBXqQ9BAWIhE1RdYG5oluK3dh-GVabJjhP7C1rNo5NeL173XHnz5jF9qMJIDeo-_VJO7unUn6hYLw1JhDPGAQj0vfLpPLHncEooSQZ46J3Q3kHAYiZpiimeVfK-1hJ0nulVfgPu_hljCIgEQIylZ57ed1lx1-uE6Bgg_r0yrYoiH-16e2hBVpD6kCy_qIO4vAxZLD04tm2XyNXzCRg5VapWlykRbPAPav0OLl9jKGG_V-UXHIbrxbBVfQ"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-lg font-bold text-primary mb-1">Dr. Rajesh Subramanian</h3>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label text-[11px] font-semibold tracking-wider uppercase">Head of Department</span>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="school">school</span>
+<p class="font-body text-sm text-on-surface-variant">Computer Science &amp; Engineering</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+<p class="font-body text-sm text-on-surface">rajesh.s@christuniversity.in</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="meeting_room">meeting_room</span>
+<p class="font-body text-sm text-on-surface">Cabin 402, Block B, 4th Floor</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="location_on">location_on</span>
+<p class="font-body text-sm text-on-surface">Main Campus, Bengaluru</p>
+</div>
+</div>
+</div>
+<!-- Faculty Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_24px_rgba(0,30,64,0.04)] hover:shadow-[0_12px_32px_rgba(0,30,64,0.08)] transition-all duration-300 group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-low">
+<img alt="Faculty portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="professional woman professor in academic attire with soft natural lighting in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDICvxuMLGU8Quo8G3KHziMQdE9nAwFy9vTsVWF-2mLdFf0z1X7-ub1HiuLqdiZUo7WZ1C6FIrO_nms5JQupBwMMJ8KAI6k9yY5OlG03snBpcBI6TK9a9mA2QfMSq298AWjyYsmCW9nGUiLOjeEWNMJ7eYGlmdZ66lk7UW7VrRmhe7mQ2koV_rONyITUwFyNWB6JT_7Oid4ixgIN-jlk3c5SCvX-Lv2Nakwwsj1miW9EUYjfL_vmx5L_wE5qD-l8jfyFqv8R8rh9Unq"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-lg font-bold text-primary mb-1">Dr. Ananya Sharma</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px]" data-icon="history_edu">history_edu</span>
+<span class="font-label text-[11px] font-semibold tracking-wider uppercase">Senior Associate Professor</span>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="school">school</span>
+<p class="font-body text-sm text-on-surface-variant">Management &amp; Commerce</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+<p class="font-body text-sm text-on-surface">ananya.sharma@christuniversity.in</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="meeting_room">meeting_room</span>
+<p class="font-body text-sm text-on-surface">Cabin 112, Block C, Ground Floor</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="location_on">location_on</span>
+<p class="font-body text-sm text-on-surface">Bannerghatta Road Campus</p>
+</div>
+</div>
+</div>
+<!-- Faculty Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_24px_rgba(0,30,64,0.04)] hover:shadow-[0_12px_32px_rgba(0,30,64,0.08)] transition-all duration-300 group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-low">
+<img alt="Faculty portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="middle aged academic with glasses and a friendly demeanor in a bright modern office workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4EEgSZGMfL-haEzQN_VI0DF8_GUaMz0MxXZ4h-GySTqdRdqnIUpxjglAUd14jlaVr1beY6A4tcWa1jnw0D54SEjdUFptbH2c9wvvzkjMS95du1n12R5iN8CuGZR8GSrXFF6yDsq3boFZMNr_-QWtRLcThOKy7q6hjqyBeOGvkp1qyCWA5yVJTe-XBuDmimXc7KRKHpd_L18vAdLXKdvB0g5gb4dX9YiWUWqXC_aO6QmoFTXSRp7iX0Sx9s8VJq6qiVxBHpoJg1TNK"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-lg font-bold text-primary mb-1">Prof. Michael Chen</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px]" data-icon="psychology">psychology</span>
+<span class="font-label text-[11px] font-semibold tracking-wider uppercase">Assistant Professor</span>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="school">school</span>
+<p class="font-body text-sm text-on-surface-variant">Psychology &amp; Social Sciences</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+<p class="font-body text-sm text-on-surface">michael.chen@christuniversity.in</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="meeting_room">meeting_room</span>
+<p class="font-body text-sm text-on-surface">Cabin 205, Block A, 2nd Floor</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="location_on">location_on</span>
+<p class="font-body text-sm text-on-surface">Kengeri Campus</p>
+</div>
+</div>
+</div>
+<!-- Faculty Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_24px_rgba(0,30,64,0.04)] hover:shadow-[0_12px_32px_rgba(0,30,64,0.08)] transition-all duration-300 group">
+<div class="flex items-start gap-4 mb-4">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-low">
+<img alt="Faculty portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="professional academic woman with a sharp intelligent look wearing a white blazer in a high-end educational building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbjsERu0FVD5R0PCrBc-U3FoXr-vrFxxFpITl9q6cMjjY58KGY_sYaCxQC7WVV0ZyFeNK_q4eyH-eQC7lAXbCZH85oKe5s7hfdLpLiBb6yuV6IeCctLMjxH7EVV_rRH6IJZryCXCK9lYf5DUiqfFoZWvZNTHsM52-XvXYPpXL4pJKMdBhRjaFTp0BVj78hpp7PSUDUShv8i1gmxz97Js8_RQyYt6xdwuvsHLPQ1p7nXeaYziJDRFNusAkykHsP_qGdk6Mvxmd5ZMY-"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-lg font-bold text-primary mb-1">Dr. Sarah Thompson</h3>
+<div class="flex items-center gap-1.5 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px]" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[11px] font-semibold tracking-wider uppercase">Lead Researcher</span>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-surface-container-low">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="school">school</span>
+<p class="font-body text-sm text-on-surface-variant">Department of Humanities</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="mail">mail</span>
+<p class="font-body text-sm text-on-surface">sarah.t@christuniversity.in</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="meeting_room">meeting_room</span>
+<p class="font-body text-sm text-on-surface">Research Lab 08, Block D</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="location_on">location_on</span>
+<p class="font-body text-sm text-on-surface">Main Campus, Bengaluru</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-t-[1.5rem] z-50 shadow-[0_-8px_24px_rgba(0,30,64,0.04)] flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#735c00] transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-[11px] font-medium tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#735c00] transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-inter text-[11px] font-medium tracking-wide uppercase mt-1">Academics</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-[#735c00] transition-colors scale-95 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-inter text-[11px] font-medium tracking-wide uppercase mt-1">Attendance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#001e40] dark:text-white after:content-[''] after:w-1 after:h-1 after:bg-[#735c00] after:rounded-full after:mt-1 scale-95 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-inter text-[11px] font-medium tracking-wide uppercase mt-1">Faculty</span>
+</a>
+</nav>
+</body></html>

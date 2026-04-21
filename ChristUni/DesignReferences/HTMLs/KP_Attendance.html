@@ -1,0 +1,1026 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0075)https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script src="./KP_Attendance_files/studentLayoutNew.js" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Knowledge Pro</title><link rel="stylesheet" href="./KP_Attendance_files/bootstrap.min.css" type="text/css"><link rel="stylesheet" href="./KP_Attendance_files/base.css" type="text/css"><link rel="stylesheet" href="./KP_Attendance_files/menustyle1.css" type="text/css"><link rel="stylesheet" type="text/css" href="./KP_Attendance_files/styles.css"><script type="text/javascript" src="./KP_Attendance_files/jquery-1.10.1.min.js"></script><script type="text/javascript" src="./KP_Attendance_files/bootstrap.min.js"></script><script type="text/javascript" src="./KP_Attendance_files/script.js"></script><script type="text/javascript" src="./KP_Attendance_files/Ajax.js"></script><script type="text/javascript" src="./KP_Attendance_files/AjaxUtil.js"></script><style type="text/css">
+.cotbox {
+	width: 100%;
+	float: left;
+	 margin-top: 130px; 
+	  overflow: auto;
+}
+</style><link rel="stylesheet" type="text/css" href="./KP_Attendance_files/jquery.confirm.css"><script type="text/javascript" src="./KP_Attendance_files/jquery.confirm.js"></script><style type="text/css">
+  .home {
+  cursor:pointer;
+  color: #183883; 
+  font-size: 18px; 
+  margin: 0; 
+  padding: 0 30px;
+  }
+  .home:hover {
+  cursor:pointer;
+  font-size: 18px; 
+  margin: 0; 
+  padding: 0 30px;
+  color: #f55e15;
+  }
+  .header {
+	background: #fff;
+	width: 100%;
+	height: 130px;
+	top: 0;
+	left: 0;
+	border-bottom: 3px solid #001b3a;
+	z-index: 100;
+	position: fixed;
+}
+ul.nav ul {
+	box-shadow: 0 0 3px #333;
+    display: none;
+    height: auto;
+    margin: 0;
+    min-width: 190px;
+    padding: 0;
+    position: absolute;
+    z-index: 9999;
+}
+</style></head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body style="">
+<div class="fixed1">
+<div class="header">
+<div class="container">
+<div class="row">
+	<div class="col-xs-3 logo">
+	<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	
+	<img src="./KP_Attendance_files/Logo.jpg" alt="Logo not available" class="img-responsive">
+	</a></div><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	<div class="col-md-5">
+	</div>
+	</a><div class="col-md-3" style="font-size: 14px;font-weight: bold;" align="right"><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=returnHomePage">
+	
+		Welcome&nbsp;: &nbsp;<strong>2447226 </strong>
+	 &nbsp;&nbsp;
+	
+		
+		
+			</a><a class="btn-link" style="font-size: 14px;font-weight: bold;" href="https://kp.christuniversity.in/KnowledgePro/StudentLoginAction.do?method=studentLogoutAction">Sign out</a>
+		
+	
+	</div>
+
+
+<div class="col-xs-9">
+            	<div class="topfull2"><div class="menubox">
+<a class="toggleMenu" href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do#"><img src="./KP_Attendance_files/icon-nav.jpg"></a>
+<ul class="nav NormalMenu">
+<li onclick="Home()" class="home" style="">Home</li>
+	
+		
+		
+		<li class="test" id="att">	<a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do#" class="parent">Attendance </a>
+       <ul style="left:-10%">
+		<li>
+			
+				
+				
+					<a id="attendanceNonCJC" href="javascript:void(0);">
+						Attendance </a>
+					
+				
+			
+		</li>
+		<li></li>
+		
+		<li>
+		
+		</li>
+		
+		<li>
+			<!-- <a
+				href="studentWiseAttendanceSummary.do?method=getStudentAbscentWithCocularLeave">Absence Details </a> -->
+			<a id="absenceDetailsId" href="javascript:void(0);">Absence Details </a>	
+		</li>
+		<li>
+			
+				
+				
+					<a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=initPreviousStudentAttendanceSummeryChrist">Previous Class Attendance</a>
+				
+			
+		</li>
+		<li></li>
+		<li>
+			<a href="https://kp.christuniversity.in/KnowledgePro/viewMyTimeTable1.do?method=initViewStudentTimeTable">View My Time Table</a>
+		</li>
+		<li>
+		
+		</li>
+		<li>
+		
+		</li>
+		
+		<li>
+	    	<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getLibraryAttendanceSummary">Library Attendance&nbsp;
+	    	<img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" id="displayDownloadNew" height="15" class="blinkImage">
+			</a>
+		</li>
+		
+	</ul>
+	</li>
+		
+		
+
+        
+	
+	<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do#" class="parent">Downloads&nbsp;<img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" id="displayDownloadNew" style="display:none;" height="15" class="blinkImage"> </a>
+	<ul style="left:-10%">
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getInternalMarkDetails">
+		CIA-Mid Sem Result</a></li>
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getPreviousSemesterInternalMarkDetails">
+		Previous Class CIA-MID Sem Result</a></li>
+		
+		
+		
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do?method=getStudentLastSemesterClass">
+		     End Semester Marks</a></li>
+		
+		<li>
+			<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=initMarksCard">My Marks Card</a>
+		</li>
+		
+		
+		<li>
+		
+		</li>
+		<!-- for multiple ese components marks display by ram -->
+		<li>
+			<!-- <a href="StudentLoginNewAction.do?method=multipleEseComponentMarksDisplay"></a> -->
+			<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getStudentLastSemesterClass">ESE Component Marks</a>
+			 
+
+		</li>
+		<!-- end -->
+		
+		
+		<!--Added by Ashwini N Kandgal  -->
+		<li>
+			
+		</li>
+		<!-- Code ended by Ashwini N Kandgal -->
+		
+		
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=FeePayementReceipts"> Fee Payment Details</a></li>
+		
+		
+		
+			
+			
+			<li></li>
+			
+			<li></li>
+		
+		<li>
+			
+		</li>
+		<li>
+		
+		</li>
+		<li></li>
+		<li>
+			
+		</li>
+		
+		<li>
+			
+		</li>
+		<li>
+		
+		</li>
+		<li><!--<a href="hostelStudentViewMessage.do?method=initHostelStudentViewMessage" >Student View Message </a>
+         --></li>
+         
+		
+		<li><a href="https://kp.christuniversity.in/KnowledgePro/displaySyllabusCoursePlan.do?method=initStudentSyllabusAndCoursePlan">Course Pack </a></li>
+		
+	
+		
+		
+		
+					
+			
+			
+					<li><a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=initDocumentSubmissionStatus">Document Submission Status&nbsp;<img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage"> </a></li>
+					
+					
+			
+					
+			  
+			
+		 
+			<li>
+				<a href="https://kp.christuniversity.in/KnowledgePro/StudentLoginNewAction.do?method=getCourseCompletionStatus">Programme Completion Status</a>
+			</li>
+		
+		 <li>
+		  
+		 
+	
+	 	</li>
+	</ul>
+	
+	<script type="text/javascript">
+	 $( "#displayDownloadNew" ).removeAttr( "style" );
+	</script>
+	
+	
+	</li>
+	
+
+
+	<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do#" class="parent">Apply Online&nbsp;<img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" id="displayOnlineNewLogo" height="15" class="blinkImage"></a>
+	<ul style="left:-10%">
+			
+			
+			<!-- certificateRequest1.do?method=initCertificateRequest -->
+			<li><a href="javascript:void(0);" onclick="certificateRequest()"> Certificate Request</a></li>
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/certificateRequest1.do?method=getCertificateStatus">Certificate Status</a></li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+		
+		
+			
+				
+					<li> 
+					<!-- onlineExamSuppApplication.do?method=initConvocationRegistration -->
+					<a href="javascript:void(0);" onclick="convocationRegistration()">Convocation Registration
+					&nbsp; <img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+					</a> </li>
+					
+				
+			
+			<!--attestMarksCard.do?method=initAttestMarksCard&studentId=1730883&isOriginalTranscript=false  -->
+			<li> <a href="javascript:void(0);" onclick="marksCardAttestation(1730883)">Marks Card Attestation
+					&nbsp; <img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+				</a> 
+			</li>
+			<!-- attestMarksCard.do?method=initOriginalTransScriptRequest&studentId=1730883&isOriginalTranscript=true -->
+			<li> <a href="javascript:void(0);" onclick="originalTranscriptRequest(1730883)">Original Transcript Request 
+					&nbsp; <img src="./KP_Attendance_files/supportRequestnew_icon1.png" width="25" height="15" class="blinkImage">
+				</a> 
+			</li> 
+		</ul>
+	</li>
+	
+	<script type="text/javascript">
+	 $( "#displayOnlineNewLogo" ).removeAttr( "style" );
+	</script>
+	
+	
+		<li class="test"><a href="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do#" class="parent">Student Support </a>
+		<ul style="left:-10%">
+		
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/studentSupportRequest1.do?method=initStudentSupportRequest">Support Request </a></li>
+			<li><a href="https://kp.christuniversity.in/KnowledgePro/facultyLocation.do?method=initFacultyLocation">Faculty Location </a></li>
+			
+		                  <li><a href="http://databank.christuniversity.in/" target="_blank">Data Bank </a></li> 
+		                  <li><a href="http://courses.christuniversity.in/login/index.php" target="_blank">My Course</a></li>
+		                  
+		        
+			
+			
+		</ul>
+<!-- 				<li onclick="facultyLocation()" class="home" style="" >Faculty Location</a></li>
+ -->    </li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="./KP_Attendance_files/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="./KP_Attendance_files/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="./KP_Attendance_files/jquery-ui.css">
+<script language="JavaScript" src="./KP_Attendance_files/calendar_us.js"></script>
+<link rel="stylesheet" type="text/css" href="./KP_Attendance_files/jquery.confirm.css">
+<script src="./KP_Attendance_files/jquery.confirm.js"></script>
+<script language="JavaScript" src="./KP_Attendance_files/studentHeaderNew.js"></script>
+
+<div class="cotbox">
+<div class="container cothight">
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./KP_Attendance_files/styles.css">
+
+<form name="studentWiseAttendanceSummaryForm" method="post" action="https://kp.christuniversity.in/KnowledgePro/studentWiseAttendanceSummary.do">
+
+<input type="hidden" name="formName" value="studentWiseAttendanceSummaryForm">
+<input type="hidden" name="pageType" value="1">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+			<td colspan="3"><span>Attendance
+			<span>&gt;&gt; Previous Class Attendance &gt;&gt;</span></span></td>
+		</tr>
+				<tr>
+					<td width="9"><img src="./KP_Attendance_files/st_Tright_03_01.gif" width="9" height="29"></td>
+					<td background="./KP_Attendance_files/st_Tcenter.gif"><big><b>Attendance For Class 1MCA B</b></big></td>
+
+					<td width="10"><img src="./KP_Attendance_files/st_Tright_1_01.gif" width="9" height="29"></td>
+				</tr>
+				<tr height="10%">
+					<td height="20" valign="top" background="./KP_Attendance_files/Tright_03_03.gif"></td>
+					<td valign="top" height="10%">
+					
+					</td>
+					<td valign="top" background="./KP_Attendance_files/Tright_3_3.gif" class="news"></td>
+				</tr>
+				
+				
+				<tr>
+					<td height="19" valign="top" background="./KP_Attendance_files/Tright_03_03.gif"></td>
+					<td valign="top" class="news">
+					<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td><img src="./KP_Attendance_files/st_01.gif" width="5" height="5"></td>
+							<td width="100%" background="./KP_Attendance_files/st_02.gif"></td>
+
+							<td><img src="./KP_Attendance_files/st_03.gif" width="5" height="5"></td>
+						</tr>
+						<tr>
+							<td width="5" background="./KP_Attendance_files/st_left.gif"></td>
+							<td valign="top">
+							<table width="100%" cellspacing="1" cellpadding="2" class="table table-striped table-bordered table-condensed">
+								<tbody><tr>
+									<td height="25" width="5%">
+									<div align="left"><b>Sl No</b></div>
+									</td>
+									<td height="25" width="40%"><b>Subject Name </b></td>
+									<td width="55%" height="25" align="center">
+									 <table width="100%" border="0">
+									<tbody><tr>
+									<td height="22" width="20%" align="center"><b>Attendance Type </b></td>
+									<td height="20" width="22%">
+									<div align="right"><b>Conducted </b></div>
+									</td>
+									<td height="20" width="20%">
+									<div align="right"><b>Present</b> </div>
+									</td>
+									<td height="20" width="20%">
+									<div align="right"><b>Absent </b></div>
+									</td>
+									<td height="20" width="20%">
+									<div align="right"><b>Percentage</b> </div>
+									</td>
+									</tr>
+									</tbody></table>
+									</td>
+								</tr>
+							
+							
+							
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">1</div>
+												</td>
+												<td width="40%" height="25">MATHEMATICAL FOUNDATION FOR COMPUTER SCIENCE</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">31</td>
+												<td width="20%" height="25" align="right">30</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3645854&#39;,&#39;1&#39;,&#39;27516&#39;,&#39;1730883&#39;,&#39;1.0&#39;,&#39;Theory&#39;);">
+														<u>1</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">96.77</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">2</div>
+												</td>
+												<td width="40%" height="25">PROBLEM SOLVING USING C</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">30</td>
+												<td width="20%" height="25" align="right">28</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3648688&#39;,&#39;1&#39;,&#39;27517&#39;,&#39;1730883&#39;,&#39;2.0&#39;,&#39;Theory&#39;);">
+														<u>2</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">93.33</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">3</div>
+												</td>
+												<td width="40%" height="25">RESEARCH METHODOLOGY</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">34</td>
+												<td width="20%" height="25" align="right">32</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3644992&#39;,&#39;1&#39;,&#39;27518&#39;,&#39;1730883&#39;,&#39;2.0&#39;,&#39;Theory&#39;);">
+														<u>2</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">94.12</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">4</div>
+												</td>
+												<td width="40%" height="25">COMPUTER ORGANIZATION AND DESIGN</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">46</td>
+												<td width="20%" height="25" align="right">45</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3647905&#39;,&#39;1&#39;,&#39;27519&#39;,&#39;1730883&#39;,&#39;1.0&#39;,&#39;Theory&#39;);">
+														<u>1</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">97.83</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">5</div>
+												</td>
+												<td width="40%" height="25">ADVANCED DATABASE TECHNOLOGIES</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">47</td>
+												<td width="20%" height="25" align="right">46</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3644676&#39;,&#39;1&#39;,&#39;27520&#39;,&#39;1730883&#39;,&#39;1.0&#39;,&#39;Theory&#39;);">
+														<u>1</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">97.87</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">6</div>
+												</td>
+												<td width="40%" height="25">PYTHON PROGRAMMING</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">47</td>
+												<td width="20%" height="25" align="right">43</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3649849&#39;,&#39;1&#39;,&#39;21859&#39;,&#39;1730883&#39;,&#39;4.0&#39;,&#39;Theory&#39;);">
+														<u>4</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">91.49</td>
+												</tr>
+												
+												
+												<tr>
+												<td width="20%" height="25" align="center">
+												Practical
+												</td>
+												<td width="20%" height="25" align="right">17</td>
+												<td width="20%" height="25" align="right">15</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3645215&#39;,&#39;2&#39;,&#39;21859&#39;,&#39;1730883&#39;,&#39;2.0&#39;,&#39;Practical&#39;);">
+														<u>2</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">88.24</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">7</div>
+												</td>
+												<td width="40%" height="25">WEB STACK DEVELOPMENT</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">62</td>
+												<td width="20%" height="25" align="right">58</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3655240&#39;,&#39;1&#39;,&#39;27521&#39;,&#39;1730883&#39;,&#39;4.0&#39;,&#39;Theory&#39;);">
+														<u>4</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">93.55</td>
+												</tr>
+												
+												
+												<tr>
+												<td width="20%" height="25" align="center">
+												Practical
+												</td>
+												<td width="20%" height="25" align="right">17</td>
+												<td width="20%" height="25" align="right">15</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3651231&#39;,&#39;2&#39;,&#39;27521&#39;,&#39;1730883&#39;,&#39;2.0&#39;,&#39;Practical&#39;);">
+														<u>2</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">88.24</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">8</div>
+												</td>
+												<td width="40%" height="25">HOLISTIC EDUCATION</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Theory
+												</td>
+												<td width="20%" height="25" align="right">15</td>
+												<td width="20%" height="25" align="right">14</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												<a style="cursor: pointer;color: #4c55ce;font-weight: bold;" onclick="winOpen(&#39;3661731&#39;,&#39;1&#39;,&#39;13121&#39;,&#39;1730883&#39;,&#39;1.0&#39;,&#39;Theory&#39;);">
+														<u>1</u></a>
+												
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">93.33</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">9</div>
+												</td>
+												<td width="40%" height="25">Auditorium Programme</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Extra Curricular
+												</td>
+												<td width="20%" height="25" align="right">2</td>
+												<td width="20%" height="25" align="right">2</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												
+													0
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">100.0</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								
+											<tr>
+												<td width="5%" height="25">
+												<div align="left">10</div>
+												</td>
+												<td width="40%" height="25">Orientation</td>
+												
+												<td width="55%" height="25" align="center">
+												 <table width="100%" cellspacing="1" cellpadding="5" border="0">
+												 	
+												
+												
+												<tbody><tr>
+												<td width="20%" height="25" align="center">
+												Extra Curricular
+												</td>
+												<td width="20%" height="25" align="right">30</td>
+												<td width="20%" height="25" align="right">30</td>
+												<td width="20%" height="25" align="right">
+												
+												
+												
+													0
+												
+												
+												</td>
+												<td width="20%" height="25" align="right">100.0</td>
+												</tr>
+												
+												
+												</tbody></table>												
+												</td>													
+												</tr>
+									
+								 
+								
+								<tr>
+									<td height="25" colspan="2">
+									<div align="right"><b>Total</b> </div>
+									</td>
+									<td width="10%" height="25" align="center" colspan="5">
+									 <table width="100%" height="100%" cellspacing="1" cellpadding="5" border="0">
+									<tbody><tr>
+											<td width="20%"> </td>
+											<td width="20%">
+											<div align="right"> 378</div>
+											</td>
+											<td width="20%">
+											<div align="right"> 358</div>
+											</td>
+											<td width="20%">
+											<div align="right">20 </div>
+											</td>
+											<td width="20%">
+											<div align="right"> </div>
+											</td>
+										</tr>
+									</tbody></table>
+									</td>
+								</tr>
+								<tr>
+									<td height="25" colspan="2">
+									<div align="right"><b>Total Percentage</b></div>
+									</td>
+									<td width="10%" height="25" align="center" colspan="5">
+									 <table width="100%" height="100%" cellspacing="1" cellpadding="5" border="0">
+									<tbody><tr>
+											<td width="10%"> </td>
+											<td width="20%">
+											<div align="right"></div>
+											</td>
+											<td width="20%">
+											<div align="right"> </div>
+											</td>
+											<td width="20%">
+											<div align="right"> </div>
+											</td>
+											<td width="20%">
+											<div align="right">94.71 </div>
+											</td>
+										</tr>
+									</tbody></table>
+									</td>
+								</tr>
+									</tbody></table>
+					<table align="center" width="100%" cellspacing="1" cellpadding="1">
+					
+						<tbody><tr>
+						<td colspan="2" class="heading">
+							The medical leave will be considered only if aggregate % is above 75% at the end of semester. Medical leave will be applied between 75% and 85% of attendance with co-curricular						
+						</td>
+						</tr>
+						
+						<tr>
+							<td>
+								<br>
+								* Maximum percentage without leave
+							</td>
+						</tr>
+						<tr>
+							<td>
+								* Total Percentage=(Total Class Present/Total Class Conducted)*100
+							</td>
+						</tr>
+						<tr height="10"></tr>
+						<tr>
+                   		<td><div align="center">
+						 <a href="javascript:void(0);" class="btn btn-primary" onclick="printPreviousAttendances()">
+						         		 <span class="glyphicon glyphicon-print"></span> Print
+						      		  </a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="button" name="" value="Cancel" onclick="cancelAction()" class="btn btn-primary">
+						  </div></td>
+                 		  </tr>
+					</tbody></table>
+							
+							</td>
+							<td width="5" height="30" background="./KP_Attendance_files/st_right.gif"></td>
+						</tr>
+						<tr>
+
+							<td height="5"><img src="./KP_Attendance_files/st_04.gif" width="5" height="5"></td>
+							<td background="./KP_Attendance_files/st_05.gif"></td>
+							<td><img src="./KP_Attendance_files/st_06.gif"></td>
+						</tr>
+					</tbody></table>
+					</td>
+					<td valign="top" background="./KP_Attendance_files/Tright_3_3.gif" class="news"></td>
+				</tr>
+				<tr>
+					<td height="19" valign="top" background="./KP_Attendance_files/Tright_03_03.gif"></td>
+
+					<td valign="top" class="news">&nbsp;</td>
+					<td valign="top" background="./KP_Attendance_files/Tright_3_3.gif" class="news"></td>
+				</tr>
+				<tr>
+					<td><img src="./KP_Attendance_files/st_Tright_03_05.gif" width="9" height="29"></td>
+					<td width="0" background="./KP_Attendance_files/st_TcenterD.gif"></td>
+					<td><img src="./KP_Attendance_files/st_Tright_02.gif" width="9" height="29"></td>
+				</tr>
+			</tbody></table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" background="./KP_Attendance_files/bg_img.gif">
+  <!--<tr>
+    <td height="32" align="center" class="copyright">Copyrights @ 2009 Knowledge Pro All rights reserved. </td>
+  </tr>
+--></table>
+</form>
+<script src="./KP_Attendance_files/PreviousStudentsAttendanceSummary2.js" type="text/javascript"></script>
+</div>
+</div>
+<!-- Footer  -->
+
+
+
+
+
+
+
+
+
+
+<div class="footerbottom clearfix">
+<div class="container">
+<div class="col-md-8 col-sm-8 link">
+<!--<a href="#">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+	href="#">About us</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Campus</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+	href="#">Academics</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Student
+services</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Admission</a>
+
+--><div class="copy">Copyright © 2015 - christuniversity.in</div>
+</div>
+<!--<div class="col-md-4 col-sm-4 ini">Website Design, Website
+Development, Web Hosting by INI Technologies Pvt Ltd, Cochin, India</div>
+-->
+</div>
+</div>
+
+
+
+
+
+
+<div id="give-freely-root-bcjindcccaagfpapjjmafapmmgkkhgoa" class="give-freely-root" data-extension-id="bcjindcccaagfpapjjmafapmmgkkhgoa" data-extension-name="JSON Formatter" style="display: block;"><template shadowrootmode="open"><style>
+  :host {
+    all: initial;
+  }
+
+  .gf-scroll-remove::-webkit-scrollbar {
+    border-radius-bottom-right: 15px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .give-freely-close-button:hover {
+    opacity: 0.7;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 1em 0;
+  }
+
+  dialog::backdrop  {
+    background-color: revert;
+  }
+
+  dialog.backdrop-hidden::backdrop  {
+    background-color: transparent;
+  }
+</style><div><div class="gf-app"></div></div></template></div><audio class="audio-output" style="display: none;"></audio><div id="volume-booster-visusalizer">
+                    <div class="sound">
+                        <div class="sound-icon"></div>
+                        <div class="sound-wave sound-wave_one"></div>
+                        <div class="sound-wave sound-wave_two"></div>
+                        <div class="sound-wave sound-wave_three"></div>
+                    </div>
+                    <div class="segments-box">
+                        <div data-range="1-20" class="segment"><span></span></div>
+                        <div data-range="21-40" class="segment"><span></span></div>
+                        <div data-range="41-60" class="segment"><span></span></div>
+                        <div data-range="61-80" class="segment"><span></span></div>
+                        <div data-range="81-100" class="segment"><span></span></div>
+                    </div>
+                </div></body></html>

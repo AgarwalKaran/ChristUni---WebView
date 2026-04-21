@@ -1,0 +1,68 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode — user-specific & build artifacts
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+DerivedData/
+build/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/configuration/
+# Keep Package.resolved for apps/libs that pin dependencies (remove this line if you prefer not to commit it)
+
+# CocoaPods (keep Podfile; run `pod install` locally — do not use `*.xcworkspace` here or you risk ignoring Xcode’s project.xcworkspace)
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/readme.md
+
+# Code Injection / tooling
+iOSInjectionProject/
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftPM Xcode integration (if present)
+*.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# Environment & secrets (never commit)
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+AuthKey_*.pkey
+
+# Archives & temp
+*.orig
+*.log
+*.tmp
+*.temp
+
+# IDEs (optional local-only; uncomment if you use these tools)
+# .idea/
+# *.sublime-*
