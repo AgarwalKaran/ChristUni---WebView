@@ -252,3 +252,52 @@ Use this file when resuming work on the **ChristUni** iOS app (SwiftUI, mock dat
 - Final polish:
   - Added pulse/ripple animation around spotlight highlight during onboarding tab steps.
   - Includes layered ripple rings for subtle, premium focus guidance.
+
+## Latest context save (Apr 21, 2026 — auth UX + stability pass)
+
+- Faculty background loading reliability:
+  - `StudentPortalState` now preloads faculty suggestions in background after successful authenticated refresh (`preloadFacultyInBackgroundIfNeeded`).
+  - Faculty bootstrap is no longer tab-visibility dependent; quick tab switch-away no longer blocks eventual faculty readiness.
+  - Added in-flight guard (`facultyTask == nil`) to avoid duplicate/racing initial faculty fetch calls.
+  - Faculty task lifecycle cleanup improved (`defer { facultyTask = nil }`, explicit reset on cancel paths).
+  - Reduced false session-expired UI flips by requiring repeated initial faculty fetch failures before setting `facultyNeedsRealtimeLogin = true`.
+
+- Home attendance standing logic fix:
+  - Replaced hardcoded “EXCELLENT STANDING” in `DashboardHomeView` with percentage bands:
+    - `95...100`: Excellent
+    - `90..<95`: Great
+    - `85..<90`: Good
+    - `80..<85`: Stable
+    - `<80`: Low attendance
+  - Low-attendance state now uses subtle yellow warning styling instead of positive-state colors.
+
+- Pre-login entry experience added and then refined:
+  - New pre-login screen introduced: `Views/Auth/PreLoginWelcomeView.swift`.
+  - Current behavior is intentionally **first-install only** before WebView login.
+  - Refresh icon flow and Faculty “Login Again” continue to bypass this screen and go straight to portal login.
+  - Main routing is handled in `MainTabView` using persisted key `auth.prelogin.welcome.seen.v1`.
+
+- Pre-login visual redesign + asset wiring:
+  - Screen was redesigned to match provided reference style: cleaner single-card layout, sharper typography, smaller heading, premium spacing.
+  - Typewriter text effect removed; replaced with subtle parallax-style ambient motion for a more professional feel.
+  - Added proper logo asset integration:
+    - created `ChristUni/Assets.xcassets/PreLoginLogo.imageset/`
+    - copied `DesignReferences/logo.png` into the imageset as `logo.png`
+    - pre-login screen now uses `Image("PreLoginLogo")`.
+
+- Privacy notes/policy UX on pre-login:
+  - Bottom-sheet privacy policy was restored and auto-opens shortly after pre-login screen appears.
+  - Policy content explicitly states:
+    - credentials are not stored,
+    - data stays local on device,
+    - app uses official portal session.
+  - Fixed dismissal bug:
+    - if sheet is swipe-dismissed before acceptance, user can still reopen it.
+    - login CTA remains tappable and reopens policy when not accepted (instead of leaving user stuck with disabled button).
+    - added explicit “View privacy notes” action for re-entry.
+
+- Current expected state to validate on device:
+  - First install -> pre-login screen -> privacy sheet auto-opens -> accept -> login to portal.
+  - If privacy sheet is dismissed without acceptance -> tapping login reopens privacy sheet.
+  - After first successful continue, pre-login no longer appears on normal logged-out entries unless install state is reset.
+  - Faculty tab should be ready more reliably even if user quickly leaves the tab during initial load.
