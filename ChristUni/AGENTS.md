@@ -252,3 +252,5 @@ Use this file when resuming work on the **ChristUni** iOS app (SwiftUI, mock dat
 - Final polish:
   - Added pulse/ripple animation around spotlight highlight during onboarding tab steps.
   - Includes layered ripple rings for subtle, premium focus guidance.
+
+Test
