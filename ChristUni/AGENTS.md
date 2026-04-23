@@ -301,3 +301,15 @@ Use this file when resuming work on the **ChristUni** iOS app (SwiftUI, mock dat
   - If privacy sheet is dismissed without acceptance -> tapping login reopens privacy sheet.
   - After first successful continue, pre-login no longer appears on normal logged-out entries unless install state is reset.
   - Faculty tab should be ready more reliably even if user quickly leaves the tab during initial load.
+
+## Latest context save (Apr 23, 2026 — startup offline UX)
+
+- Added non-blocking internet availability validation on app startup in `Views/MainTabView.swift`.
+- Startup connectivity check now uses `NWPathMonitor` (one-time check per launch appearance).
+- If internet is unavailable at startup, app shows a transient notice:
+  - `No internet connection. Showing locally saved data.`
+- Offline notice is informational only (does not block login UI, navigation, or tab exploration).
+- Existing local snapshot/cache behavior remains unchanged; users can continue using locally available data when offline.
+- Implementation cleanup:
+  - monitor is cancelled and released after first path result,
+  - additional cancellation occurs on `MainTabView` disappearance to avoid lingering monitor instances.

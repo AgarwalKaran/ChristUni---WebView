@@ -7,11 +7,15 @@
 
 import SwiftUI
 import Foundation
+import Network
 
 struct MainTabView: View {
     @State private var portalState = StudentPortalState()
     @State private var showLastUpdatedToast = false
     @State private var hasPresentedLastUpdatedToast = false
+    @State private var showOfflineStartupNotice = false
+    @State private var hasCheckedStartupConnectivity = false
+    @State private var startupNetworkMonitor: NWPathMonitor?
     @State private var showOnboarding = false
     @State private var onboardingStepIndex = 0
     @State private var onboardingDirection: CGFloat = 1
@@ -96,6 +100,22 @@ struct MainTabView: View {
                     .zIndex(999)
                 }
 
+                if showOfflineStartupNotice {
+                    VStack {
+                        Spacer()
+                        Text("No internet connection. Showing locally saved data.")
+                            .font(DesignTokens.FontStyle.label(13, weight: .semibold))
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 10)
+                            .background(Color.appOnSurface)
+                            .foregroundStyle(Color.appSurface)
+                            .clipShape(Capsule())
+                            .padding(.bottom, 168)
+                    }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .zIndex(1000)
+                }
+
                 if showOnboarding {
                     onboardingSpotlightOverlay(in: geometry)
                         .zIndex(1400)
@@ -117,9 +137,14 @@ struct MainTabView: View {
         .onAppear {
             normalizeOnboardingStateForFreshInstall()
             syncPreLoginWelcomeState()
+            performStartupConnectivityCheckIfNeeded()
             presentLastUpdatedToastIfNeeded()
             startOnboardingIfNeeded(portalState: portalState)
             startSpotlightPulse()
+        }
+        .onDisappear {
+            startupNetworkMonitor?.cancel()
+            startupNetworkMonitor = nil
         }
         .onChange(of: portalState.authState) { _, _ in
             syncPreLoginWelcomeState()
@@ -138,6 +163,32 @@ struct MainTabView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             showLastUpdatedToast = false
         }
+    }
+
+    private func performStartupConnectivityCheckIfNeeded() {
+        guard !hasCheckedStartupConnectivity else { return }
+        guard startupNetworkMonitor == nil else { return }
+
+        let monitor = NWPathMonitor()
+        startupNetworkMonitor = monitor
+        let queue = DispatchQueue(label: "christuni.startup.connectivity")
+
+        monitor.pathUpdateHandler = { path in
+            DispatchQueue.main.async {
+                guard !hasCheckedStartupConnectivity else { return }
+                hasCheckedStartupConnectivity = true
+                if path.status != .satisfied {
+                    showOfflineStartupNotice = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                        showOfflineStartupNotice = false
+                    }
+                }
+                startupNetworkMonitor?.cancel()
+                startupNetworkMonitor = nil
+            }
+        }
+
+        monitor.start(queue: queue)
     }
 
     private func startOnboardingIfNeeded(portalState: StudentPortalState) {
