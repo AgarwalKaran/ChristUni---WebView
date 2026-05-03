@@ -11,9 +11,13 @@ import SwiftUI
 struct ChristUniApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
-                // Editorial palette is authored for light surfaces; keep one consistent look in any system appearance.
-                .preferredColorScheme(.light)
+            DisplayZoomNeutralizingRoot {
+                MainTabView()
+                    // Editorial palette is authored for light surfaces; keep one consistent look in any system appearance.
+                    .preferredColorScheme(.light)
+                    // Layout is authored for default metrics; clamp Dynamic Type so accessibility text sizes don’t reflow.
+                    .dynamicTypeSize(.large ... .large)
+            }
         }
     }
 }
