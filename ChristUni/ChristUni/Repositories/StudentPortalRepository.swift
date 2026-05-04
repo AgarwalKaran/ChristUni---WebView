@@ -33,23 +33,31 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
         self.renderedFetcher = renderedFetcher ?? PortalRenderedPageFetcher()
     }
 
+    private var webKitSessionCookies: [HTTPCookie] {
+        client.persistedPortalCookies()
+    }
+
     func fetchSnapshot() async throws -> PortalSnapshotPayload {
         let home = try await renderedFetcher.fetch(
             endpointKey: "home",
-            endpointMap: client.endpointMap
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
         )
         let attendanceCurrent = try await fetchBestAttendanceResponse()
         let attendancePreviousSelection = try await renderedFetcher.fetch(
             endpointKey: "attendance",
-            endpointMap: client.endpointMap
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
         )
         let academicsSelect = try await renderedFetcher.fetch(
             endpointKey: "academicsSelect",
-            endpointMap: client.endpointMap
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
         )
         let facultySelect = try await renderedFetcher.fetch(
             endpointKey: "facultySelect",
-            endpointMap: client.endpointMap
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
         )
 
         let academicsResults = try await fetchAcademicsResponses(selectionHTML: academicsSelect.html)
@@ -146,7 +154,8 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
     func fetchFacultyDirectory(department: String?, employeeName: String?) async throws -> FacultyDirectoryPayload {
         let facultySelect = try await renderedFetcher.fetch(
             endpointKey: "facultySelect",
-            endpointMap: client.endpointMap
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
         )
         let initialData = facultyParser.parsePage(facultySelect.html)
         let departmentText = department?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -169,7 +178,8 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
                 "deptName": departmentText,
                 "employeeName": employeeText,
                 "empId": "0"
-            ]
+            ],
+            portalCookiesForWebKit: webKitSessionCookies
         )
         let detailData = facultyParser.parsePage(detailResponse.html)
         return FacultyDirectoryPayload(
@@ -182,12 +192,20 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
         let keys = ["attendanceSummary", "attendanceCurrentA", "attendanceCurrentB", "attendance"]
         var fallback: EndpointHTMLResponse?
         for key in keys {
-            let response = try await renderedFetcher.fetch(endpointKey: key, endpointMap: client.endpointMap)
+            let response = try await renderedFetcher.fetch(
+                endpointKey: key,
+                endpointMap: client.endpointMap,
+                portalCookiesForWebKit: webKitSessionCookies
+            )
             if responseHasAttendanceData(response.html) { return response }
             if fallback == nil { fallback = response }
         }
         if let fallback { return fallback }
-        return try await renderedFetcher.fetch(endpointKey: "attendance", endpointMap: client.endpointMap)
+        return try await renderedFetcher.fetch(
+            endpointKey: "attendance",
+            endpointMap: client.endpointMap,
+            portalCookiesForWebKit: webKitSessionCookies
+        )
     }
 
     private func fetchPreviousAttendanceResponses(selectionHTML: String) async throws -> [(option: PreviousAttendanceOption, response: EndpointHTMLResponse)] {
@@ -203,7 +221,8 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
                     "formName": "studentWiseAttendanceSummaryForm",
                     "pageType": "4",
                     "classesId": option.classesId
-                ]
+                ],
+                portalCookiesForWebKit: webKitSessionCookies
             )
             if responseHasAttendanceData(response.html) {
                 results.append((option, response))
@@ -299,7 +318,8 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
                 endpointKey: "academicsResult",
                 endpointMap: client.endpointMap,
                 method: "POST",
-                form: form
+                form: form,
+                portalCookiesForWebKit: webKitSessionCookies
             )
             if responseHasAcademicsData(response.html) { return response }
             if fallback == nil { fallback = response }
@@ -309,7 +329,8 @@ struct LiveStudentPortalRepository: StudentPortalRepository {
                 endpointKey: "academicsResultPrint",
                 endpointMap: client.endpointMap,
                 method: "GET",
-                form: form
+                form: form,
+                portalCookiesForWebKit: webKitSessionCookies
             )
             if responseHasAcademicsData(response.html) { return response }
             if fallback == nil { fallback = response }

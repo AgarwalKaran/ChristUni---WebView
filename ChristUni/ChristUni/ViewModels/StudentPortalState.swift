@@ -131,6 +131,7 @@ final class StudentPortalState {
     }
 
     func didCaptureLoginCookies(_ cookies: [HTTPCookie]) {
+        guard !cookies.isEmpty else { return }
         do {
             try authSessionStore.persist(cookies: cookies)
             refreshPortalData()

@@ -29,6 +29,11 @@ struct AuthenticatedHTTPClient {
         self.session = session
     }
 
+    /// Keychain-restored cookies for syncing into `WKWebView` (separate from `URLSession` header injection).
+    func persistedPortalCookies() -> [HTTPCookie] {
+        sessionStore.loadCookies()
+    }
+
     func fetchHTML(endpointKey: String) async throws -> String {
         try await fetchResponse(endpointKey: endpointKey).html
     }

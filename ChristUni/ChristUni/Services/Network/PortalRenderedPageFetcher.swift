@@ -21,7 +21,8 @@ final class PortalRenderedPageFetcher: NSObject, WKNavigationDelegate {
         endpointKey: String,
         endpointMap: KnowledgeProEndpointMap,
         method: String = "GET",
-        form: [String: String]? = nil
+        form: [String: String]? = nil,
+        portalCookiesForWebKit: [HTTPCookie] = []
     ) async throws -> EndpointHTMLResponse {
         guard let url = endpointMap.url(for: endpointKey) else {
             throw PortalNetworkError.missingEndpoint(endpointKey)
@@ -53,9 +54,27 @@ final class PortalRenderedPageFetcher: NSObject, WKNavigationDelegate {
         latestStatusCode = 0
         latestFinalURL = nil
 
+        await syncPortalCookiesIntoWebKitIfNeeded(cookies: portalCookiesForWebKit)
+
         return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
-            self.webView.load(request)
+            webView.load(request)
+        }
+    }
+
+    /// Ensures Keychain-persisted session cookies are present in the shared website data store before each load.
+    private func syncPortalCookiesIntoWebKitIfNeeded(cookies: [HTTPCookie]) async {
+        guard !cookies.isEmpty else { return }
+        let store = webView.configuration.websiteDataStore.httpCookieStore
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            let group = DispatchGroup()
+            for cookie in cookies {
+                group.enter()
+                store.setCookie(cookie) { group.leave() }
+            }
+            group.notify(queue: .main) {
+                continuation.resume()
+            }
         }
     }
 

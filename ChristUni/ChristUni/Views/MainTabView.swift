@@ -35,20 +35,27 @@ struct MainTabView: View {
 
                 switch portalState.authState {
                 case .loggedOut, .loginInProgress:
-                    if portalState.authState == .loggedOut && showPreLoginWelcome {
-                        PreLoginWelcomeView {
-                            UserDefaults.standard.set(true, forKey: firstInstallWelcomeSeenKey)
-                            showPreLoginWelcome = false
-                            portalState.beginLoginFlow()
-                        }
-                    } else {
-                        PortalLoginView { cookies in
-                            portalState.didCaptureLoginCookies(cookies)
+                    // WKWebView must not sit under DisplayZoomNeutralizingRoot’s scaleEffect — it kills the WebContent
+                    // process (RBS / “WebProcess Foreground Assertion” failures) and loops the login page.
+                    Group {
+                        if portalState.authState == .loggedOut && showPreLoginWelcome {
+                            PreLoginWelcomeView {
+                                UserDefaults.standard.set(true, forKey: firstInstallWelcomeSeenKey)
+                                showPreLoginWelcome = false
+                                portalState.beginLoginFlow()
+                            }
+                        } else {
+                            PortalLoginView { cookies in
+                                portalState.didCaptureLoginCookies(cookies)
+                            }
                         }
                     }
+
                 case .loadingData:
                     ProgressView("Fetching authenticated data...")
                         .font(DesignTokens.FontStyle.body(14, weight: .medium))
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+
                 case .failed(let message):
                     VStack(spacing: 14) {
                         Text(message)
@@ -61,43 +68,60 @@ struct MainTabView: View {
                         .buttonStyle(.borderedProminent)
                     }
                     .padding(24)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
                 case .authenticated:
-                    ZStack(alignment: .bottom) {
-                        Group {
-                            switch portalState.selectedTab {
-                            case .home:
-                                DashboardHomeView()
-                            case .academics:
-                                AcademicsView()
-                            case .attendance:
-                                AttendanceOverviewView()
-                            case .faculty:
-                                FacultyDirectoryView()
+                    DisplayZoomNeutralizingRoot {
+                        ZStack {
+                            ZStack(alignment: .bottom) {
+                                Group {
+                                    switch portalState.selectedTab {
+                                    case .home:
+                                        DashboardHomeView()
+                                    case .academics:
+                                        AcademicsView()
+                                    case .attendance:
+                                        AttendanceOverviewView()
+                                    case .faculty:
+                                        FacultyDirectoryView()
+                                    }
+                                }
+                                .environment(portalState)
+
+                                FloatingTabBar(selectedTab: $portalState.selectedTab)
+                                    .padding(.horizontal, 12)
+                                    .padding(.bottom, 6)
+                            }
+
+                            if showLastUpdatedToast,
+                               let relative = portalState.lastUpdatedRelativeDescription() {
+                                VStack {
+                                    Spacer()
+                                    Text("Last updated \(relative) ago")
+                                        .font(DesignTokens.FontStyle.label(13, weight: .semibold))
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 10)
+                                        .background(Color.appPrimary)
+                                        .foregroundStyle(Color.white)
+                                        .clipShape(Capsule())
+                                        .padding(.bottom, 118)
+                                }
+                                .transition(.move(edge: .bottom).combined(with: .opacity))
+                                .zIndex(999)
+                            }
+
+                            if showOnboarding {
+                                onboardingSpotlightOverlay(in: geometry)
+                                    .zIndex(1400)
+
+                                onboardingCoachCard(portalState: portalState)
+                                    .padding(.horizontal, 18)
+                                    .padding(.bottom, 110)
+                                    .frame(maxHeight: .infinity, alignment: .bottom)
+                                    .zIndex(1401)
                             }
                         }
-                        .environment(portalState)
-
-                        FloatingTabBar(selectedTab: $portalState.selectedTab)
-                            .padding(.horizontal, 12)
-                            .padding(.bottom, 6)
                     }
-                }
-
-                if showLastUpdatedToast,
-                   let relative = portalState.lastUpdatedRelativeDescription() {
-                    VStack {
-                        Spacer()
-                        Text("Last updated \(relative) ago")
-                            .font(DesignTokens.FontStyle.label(13, weight: .semibold))
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 10)
-                            .background(Color.appPrimary)
-                            .foregroundStyle(Color.white)
-                            .clipShape(Capsule())
-                            .padding(.bottom, 118)
-                    }
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .zIndex(999)
                 }
 
                 if showOfflineStartupNotice {
@@ -114,17 +138,6 @@ struct MainTabView: View {
                     }
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                     .zIndex(1000)
-                }
-
-                if showOnboarding {
-                    onboardingSpotlightOverlay(in: geometry)
-                        .zIndex(1400)
-
-                    onboardingCoachCard(portalState: portalState)
-                        .padding(.horizontal, 18)
-                        .padding(.bottom, 110)
-                        .frame(maxHeight: .infinity, alignment: .bottom)
-                        .zIndex(1401)
                 }
             }
         }
