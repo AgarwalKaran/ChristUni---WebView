@@ -313,3 +313,21 @@ Use this file when resuming work on the **ChristUni** iOS app (SwiftUI, mock dat
 - Implementation cleanup:
   - monitor is cancelled and released after first path result,
   - additional cancellation occurs on `MainTabView` disappearance to avoid lingering monitor instances.
+
+## Latest context save (May 11, 2026 — demo recording + profile photo)
+
+### Demo recording (screen-capture mode)
+
+- **Purpose:** Load fictitious portal data without logging in, for App Store / marketing recordings.
+- **Gate:** [`ChristUni/Mock/DemoRecordingSupport.swift`](ChristUni/Mock/DemoRecordingSupport.swift) — `DemoRecordingSupport.isEnabled`. Set to `false` to hide all demo UI and block entry without deleting code.
+- **Entry:** Login overlay [`PortalLoginView`](ChristUni/Views/Auth/PortalLoginView.swift) “Mock” (or equivalent) button → [`StudentPortalState.enterDemoRecordingMode()`](ChristUni/ViewModels/StudentPortalState.swift) (only when enabled).
+- **Data:** [`DemoRecordingMockData.swift`](ChristUni/Mock/DemoRecordingMockData.swift). Faculty uses local list when a department is selected; realtime login gating is relaxed in [`FacultyDirectoryView`](ChristUni/Views/Faculty/FacultyDirectoryView.swift) via `showRealtimeOnly = !portal.isDemoRecordingMode`.
+- **Profile image for demo:** [`DemoRecordingProfileImage.swift`](ChristUni/Mock/DemoRecordingProfileImage.swift) loads asset **`DemoRecordingProfile`** (PNG); too-small assets fall back to a generated neutral silhouette (avoids solid-colour artefacts from 1×1 placeholders). Replace [`Assets.xcassets/DemoRecordingProfile.imageset`](ChristUni/Assets.xcassets/) contents for a real headshot (e.g. 400×400+).
+
+### Home dashboard photo (not demo-only — keep when stripping demo)
+
+- [`DashboardHomeView`](ChristUni/Views/Home/DashboardHomeView.swift) **`profileCardPhotoContents`** prefers **`portal.profilePhotoData`** then **`profilePhotoURL`**, same order as [`ChristUniversityHeader`](ChristUni/Views/Components/ChristUniversityHeader.swift). This fixes initials-only on Home when only in-memory/cached bytes exist (including demo). **Do not remove** when removing demo recording unless you intentionally want Home to diverge from the header again.
+
+### Removing demo recording completely
+
+Authoritative step-by-step list lives in **the banner comment at the top of** [`DemoRecordingSupport.swift`](ChristUni/Mock/DemoRecordingSupport.swift) (soft-disable vs delete files, `StudentPortalState` branches, `PortalLoginView` / `MainTabView`, `FacultyDirectoryView`). After edits, search the tree for `DemoRecording`, `isDemoRecordingMode`, and `onDemoRecordingRequested` to confirm zero references.
