@@ -3,6 +3,16 @@ import WebKit
 
 struct PortalLoginView: View {
     let onCookiesCaptured: ([HTTPCookie]) -> Void
+    /// Screen-recording demo: skip portal and load fictitious data. Pass `nil` when `DemoRecordingSupport.isEnabled` is false.
+    var onDemoRecordingRequested: (() -> Void)?
+
+    init(
+        onCookiesCaptured: @escaping ([HTTPCookie]) -> Void,
+        onDemoRecordingRequested: (() -> Void)? = nil
+    ) {
+        self.onCookiesCaptured = onCookiesCaptured
+        self.onDemoRecordingRequested = onDemoRecordingRequested
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -13,7 +23,28 @@ struct PortalLoginView: View {
                 .font(DesignTokens.FontStyle.body(13, weight: .regular))
                 .foregroundStyle(Color.appOnSurfaceVariant)
                 .padding(.bottom, 8)
-            PortalLoginWebView(onCookiesCaptured: onCookiesCaptured)
+
+            ZStack(alignment: .bottomTrailing) {
+                PortalLoginWebView(onCookiesCaptured: onCookiesCaptured)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                if DemoRecordingSupport.isEnabled, let onDemoRecordingRequested {
+                    Button(action: onDemoRecordingRequested) {
+                        Text("Mock")
+                            .font(DesignTokens.FontStyle.label(13, weight: .bold))
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 10)
+                            .foregroundStyle(Color.white)
+                            .background(Color.appSecondary)
+                            .clipShape(Capsule())
+                            .shadow(color: Color.black.opacity(0.22), radius: 8, x: 0, y: 4)
+                    }
+                    .accessibilityIdentifier("demoRecordingMockLoginButton")
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 12)
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(Color.appSurface)
     }

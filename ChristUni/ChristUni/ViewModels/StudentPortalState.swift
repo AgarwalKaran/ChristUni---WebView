@@ -24,6 +24,9 @@ enum AttendanceSemesterScope: String, CaseIterable, Identifiable {
 
 @MainActor @Observable
 final class StudentPortalState {
+    /// True when using `DemoRecordingMockData` (screen capture). See `DemoRecordingSupport`.
+    var isDemoRecordingMode = false
+
     var snapshot: StudentPortalSnapshot
     var selectedTab: MainTab = .home
     var attendanceScope: AttendanceSemesterScope = .ongoing
@@ -130,8 +133,40 @@ final class StudentPortalState {
         authSessionStore.hasActiveSession
     }
 
+    /// Skips the live portal and loads fictitious data for recordings. Gated by `DemoRecordingSupport`.
+    func enterDemoRecordingMode() {
+        guard DemoRecordingSupport.isEnabled else { return }
+        refreshTask?.cancel()
+        facultyTask?.cancel()
+        facultyTask = nil
+        authSessionStore.clear()
+
+        isDemoRecordingMode = true
+        snapshot = DemoRecordingMockData.snapshot
+        selectedAttendanceBundleID = snapshot.attendanceBundles.first(where: \.isOngoing)?.id
+            ?? snapshot.attendanceBundles.first?.id
+        facultyDepartmentSuggestions = DemoRecordingMockData.departmentNamesSorted
+        facultyNeedsRealtimeLogin = false
+        isFacultyLoading = false
+        selectedFacultyDepartment = nil
+        facultyDepartmentQuery = ""
+        facultySearchText = ""
+        facultyFetchFailureCount = 0
+        fetchDiagnostics = [:]
+        lastUpdatedAt = Date()
+#if canImport(UIKit)
+        profilePhotoData = DemoRecordingProfileImage.bundledPNGData()
+#else
+        profilePhotoData = nil
+#endif
+        selectedTab = .home
+        attendanceScope = .ongoing
+        authState = .authenticated
+    }
+
     func didCaptureLoginCookies(_ cookies: [HTTPCookie]) {
         guard !cookies.isEmpty else { return }
+        isDemoRecordingMode = false
         do {
             try authSessionStore.persist(cookies: cookies)
             refreshPortalData()
@@ -145,6 +180,7 @@ final class StudentPortalState {
     }
 
     func refreshPortalData() {
+        guard !isDemoRecordingMode else { return }
         refreshTask?.cancel()
         authState = .loadingData
         refreshTask = Task { [repository, authSessionStore] in
@@ -227,6 +263,18 @@ final class StudentPortalState {
     }
 
     func selectFacultyDepartment(_ department: String) {
+        if isDemoRecordingMode {
+            facultyTask?.cancel()
+            facultyTask = nil
+            selectedFacultyDepartment = department
+            facultyDepartmentQuery = department
+            facultySearchText = ""
+            snapshot.faculty = DemoRecordingMockData.allFaculty
+            facultyNeedsRealtimeLogin = false
+            isFacultyLoading = false
+            return
+        }
+
         guard authSessionStore.hasActiveSession else {
             facultyNeedsRealtimeLogin = true
             return
@@ -266,6 +314,14 @@ final class StudentPortalState {
         selectedFacultyDepartment = nil
         facultyDepartmentQuery = ""
         facultySearchText = ""
+        if isDemoRecordingMode {
+            snapshot.faculty = DemoRecordingMockData.allFaculty
+            facultyDepartmentSuggestions = DemoRecordingMockData.departmentNamesSorted
+            facultyNeedsRealtimeLogin = false
+            isFacultyLoading = false
+            return
+        }
+
         snapshot.faculty = []
         if authSessionStore.hasActiveSession {
             loadFacultySuggestionsIfNeeded()
@@ -278,6 +334,7 @@ final class StudentPortalState {
         refreshTask?.cancel()
         facultyTask?.cancel()
         facultyTask = nil
+        isDemoRecordingMode = false
         authSessionStore.clear()
         facultyNeedsRealtimeLogin = true
         authState = .loginInProgress
@@ -306,6 +363,7 @@ final class StudentPortalState {
         refreshTask?.cancel()
         facultyTask?.cancel()
         facultyTask = nil
+        isDemoRecordingMode = false
         authSessionStore.clear()
         snapshot = MockStudentPortalData.snapshot
         selectedTab = .home
@@ -327,6 +385,7 @@ final class StudentPortalState {
     }
 
     private func preloadFacultyInBackgroundIfNeeded() {
+        guard !isDemoRecordingMode else { return }
         guard authSessionStore.hasActiveSession else { return }
         guard facultyDepartmentSuggestions.isEmpty else { return }
         loadFacultySuggestionsIfNeeded()

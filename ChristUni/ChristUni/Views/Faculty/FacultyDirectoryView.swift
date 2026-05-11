@@ -25,7 +25,8 @@ struct FacultyDirectoryView: View {
 
     var body: some View {
         @Bindable var portal = portal
-        let showRealtimeOnly = portal.facultyNeedsRealtimeLogin || !portal.hasActivePortalSession
+        let showRealtimeOnly = !portal.isDemoRecordingMode
+            && (portal.facultyNeedsRealtimeLogin || !portal.hasActivePortalSession)
 
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {

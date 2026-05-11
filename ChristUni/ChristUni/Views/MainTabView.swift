@@ -45,9 +45,12 @@ struct MainTabView: View {
                                 portalState.beginLoginFlow()
                             }
                         } else {
-                            PortalLoginView { cookies in
-                                portalState.didCaptureLoginCookies(cookies)
-                            }
+                            PortalLoginView(
+                                onCookiesCaptured: { portalState.didCaptureLoginCookies($0) },
+                                onDemoRecordingRequested: DemoRecordingSupport.isEnabled
+                                    ? { portalState.enterDemoRecordingMode() }
+                                    : nil
+                            )
                         }
                     }
 

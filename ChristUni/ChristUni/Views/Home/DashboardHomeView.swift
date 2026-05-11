@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct DashboardHomeView: View {
     @Environment(StudentPortalState.self) private var portal
@@ -155,22 +156,7 @@ struct DashboardHomeView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Color.appSurfaceLow)
-                if let photo = student.profilePhotoURL, let url = URL(string: photo) {
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image.resizable().scaledToFill()
-                        default:
-                            Text(initials)
-                                .font(DesignTokens.FontStyle.headline(22, weight: .heavy))
-                                .foregroundStyle(Color.appPrimary)
-                        }
-                    }
-                } else {
-                    Text(initials)
-                        .font(DesignTokens.FontStyle.headline(22, weight: .heavy))
-                        .foregroundStyle(Color.appPrimary)
-                }
+                profileCardPhotoContents
             }
             .frame(width: 88, height: 108)
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -206,6 +192,33 @@ struct DashboardHomeView: View {
             x: 0,
             y: DesignTokens.Shadow.cardY
         )
+    }
+
+    /// Matches `ChristUniversityHeader`: prefer cached `profilePhotoData` (demo + downloaded), then URL.
+    @ViewBuilder
+    private var profileCardPhotoContents: some View {
+        if let data = portal.profilePhotoData, let uiImage = UIImage(data: data) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFill()
+        } else if let photo = student.profilePhotoURL, let url = URL(string: photo) {
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .success(let image):
+                    image.resizable().scaledToFill()
+                default:
+                    profileCardInitialsFallback
+                }
+            }
+        } else {
+            profileCardInitialsFallback
+        }
+    }
+
+    private var profileCardInitialsFallback: some View {
+        Text(initials)
+            .font(DesignTokens.FontStyle.headline(22, weight: .heavy))
+            .foregroundStyle(Color.appPrimary)
     }
 
     private func runHomeKickstart() {
